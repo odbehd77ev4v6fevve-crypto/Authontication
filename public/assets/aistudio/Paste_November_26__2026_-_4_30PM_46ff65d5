@@ -1,0 +1,1355 @@
+# MASTER PRODUCTION PROMPT: PREMIUM DYNAMIC SHOPPING CART PAGE + PRODUCT DETAILS PAGE FINAL PRODUCTION AUDIT
+
+## ROLE & ENGINEERING RESPONSIBILITY
+
+Act as a Principal Full-Stack Software Engineer, Senior React Architect, TypeScript Engineer, Node.js Backend Architect, MongoDB Database Architect, E-commerce Solutions Architect, UI/UX Designer, Security Engineer, and QA Automation Engineer.
+
+You are working on my existing full-stack e-commerce project.
+
+I am providing a reference screenshot of a premium Shopping Cart Page.
+
+Your task has TWO MAJOR OBJECTIVES:
+
+**OBJECTIVE A:** Perform a comprehensive final production verification of the previously implemented Product Details Page and its entire Admin Panel, Frontend, Backend, API, and MongoDB integration.
+
+**OBJECTIVE B:** Implement a new premium, fully dynamic Shopping Cart Page that closely matches the uploaded reference screenshot.
+
+IMPORTANT:
+
+This is not a frontend-only implementation.
+
+The entire functionality must work with the existing backend, MongoDB database, authentication system, product management, inventory, cart services, checkout, and Admin Panel.
+
+The uploaded image is the primary visual reference for the new Cart Page.
+
+Reproduce its overall layout, component positioning, typography, spacing, proportions, colors, product presentation, buttons, cards, and visual hierarchy as closely as reasonably possible.
+
+Do not create a generic shopping cart template.
+
+---
+
+# PART 1 — FULL PROJECT INVESTIGATION BEFORE IMPLEMENTATION
+
+Before changing any code, inspect the entire existing repository.
+
+Investigate:
+
+1. package.json and available scripts.
+2. Frontend architecture.
+3. React components.
+4. TypeScript configuration.
+5. Tailwind CSS configuration.
+6. Global design system.
+7. Existing typography and fonts.
+8. Existing routing architecture.
+9. Existing homepage.
+10. Existing Product Details Page.
+11. Product models and database schemas.
+12. Product APIs.
+13. Product controllers.
+14. Product services.
+15. Product image gallery.
+16. Product variants.
+17. Inventory management.
+18. Add to Cart implementation.
+19. Cart state management.
+20. Cart database persistence.
+21. Wishlist implementation.
+22. Checkout implementation.
+23. Order creation process.
+24. Customer authentication.
+25. Admin authentication and authorization.
+26. Admin Product Management.
+27. Admin Cart-related functionality, if present.
+28. Admin Banner and Hero Slide management.
+29. MongoDB connection.
+30. Existing deployment configuration.
+
+Identify existing reusable modules and their dependencies.
+
+Do not create duplicate functionality.
+
+Do not replace working business logic.
+
+Do not redesign unrelated pages.
+
+Do not modify unrelated routes, APIs, components, or shared systems.
+
+Prepare an implementation plan and then proceed with actual coding.
+
+Do not stop after generating an audit report.
+
+---
+
+# PART 2 — NEW CART PAGE: EXACT REFERENCE DESIGN
+
+The uploaded screenshot must be treated as the primary visual specification.
+
+The target design has the following structure.
+
+## 2.1 Existing Global Header
+
+Preserve the current website header.
+
+The screenshot includes:
+
+- Top promotional announcement bar.
+- Free Shipping message.
+- Easy Return information.
+- Secure Payment information.
+- Contact phone number.
+- Brand logo.
+- Product search bar.
+- Account and Login/Register.
+- Wishlist icon with dynamic count.
+- Cart icon with dynamic item count.
+- Main navigation.
+- All Categories menu.
+
+Keep the existing navigation and functionality.
+
+Do not create a duplicate header.
+
+Do not change the global header design unnecessarily.
+
+## 2.2 Dynamic Cart Hero Banner
+
+Below the navigation, create a premium full-width Cart Hero Banner matching the screenshot.
+
+The reference contains:
+
+- Light green background.
+- Premium green visual accents.
+- Decorative circular shapes.
+- Shopping cart illustration.
+- Shopping bag elements.
+- Main heading: Your Cart.
+- Subtitle: Review your items and proceed to checkout.
+- Small section badge: Your Shopping Cart.
+- Continue Shopping CTA.
+
+Use a responsive layout.
+
+The hero banner must be dynamic and administrator-controlled.
+
+### Admin Hero Banner Management
+
+Create or extend the existing Admin Panel banner/hero management system.
+
+Administrators must be able to:
+
+- Create a new Cart Hero Banner.
+- Edit an existing banner.
+- Delete a banner.
+- Upload desktop image.
+- Upload mobile image, if supported.
+- Preview uploaded images.
+- Change banner heading.
+- Change subtitle.
+- Change CTA text.
+- Configure CTA destination URL.
+- Enable or disable a banner.
+- Schedule banner visibility, if supported.
+- Set banner display priority.
+- Configure image positioning.
+- Configure overlay or background styling where appropriate.
+
+The Cart Page must automatically retrieve the active banner from the backend.
+
+The banner must not be hardcoded.
+
+Use the existing media upload infrastructure, such as Cloudinary, if already integrated.
+
+If no Cart-specific banner management exists, extend the existing banner management system without duplicating it.
+
+Use a configurable fallback design if no active banner exists.
+
+Do not show a broken image or empty banner.
+
+IMPORTANT:
+
+Adding or editing a Cart Hero Banner must not affect the existing Homepage Hero Slider.
+
+Homepage Hero Slides, Homepage Banners, and Cart Hero Banners must remain correctly scoped.
+
+Never accidentally replace or delete existing homepage banners or hero slides.
+
+---
+
+# PART 3 — PREMIUM CART ITEMS SECTION
+
+Reproduce the main shopping cart layout.
+
+Desktop layout:
+
+- Left: Large Cart Items Card.
+- Right: Order Summary Card.
+
+The cart items card must have:
+
+- Shopping cart icon.
+- Your Cart heading.
+- Dynamic total item count.
+- Clear Cart action.
+
+Display each actual cart item as a premium horizontal product row.
+
+Each row should contain:
+
+1. Product image.
+2. Product name.
+3. Star rating.
+4. Review count.
+5. Stock status.
+6. Current selling price.
+7. Original price.
+8. Quantity selector.
+9. Item subtotal.
+10. Remove item button.
+
+Match the screenshot's spacing, borders, alignment, and typography.
+
+## 3.1 Dynamic Product Information
+
+All information must come from the actual database-backed cart and product records.
+
+Do not use static products.
+
+Do not hardcode product names, prices, ratings, or stock.
+
+The cart should automatically display the correct information after customers add products from:
+
+- Product Details Page.
+- Homepage.
+- Shop Page.
+- Category Page.
+- Related Products.
+- Other existing product sections.
+
+## 3.2 Product Image
+
+Display the actual product image.
+
+If the product has variants, use the selected variant image when available.
+
+If a product image is unavailable, display the application's standard fallback image.
+
+Do not display broken image icons.
+
+## 3.3 Product Variant Information
+
+If a cart item has selected variants, display them beneath the product name.
+
+Examples:
+
+Color: Black
+
+Size: XL
+
+Storage: 256GB
+
+Model: Pro
+
+The displayed variant information must come from the actual selected variant.
+
+Do not lose variant information when navigating between pages or refreshing.
+
+## 3.4 Product Rating
+
+Display actual published review ratings and review counts.
+
+Do not generate fake ratings.
+
+If a product has no reviews, display an appropriate empty state instead of fake review information.
+
+## 3.5 Stock Status
+
+Show actual stock status.
+
+Examples:
+
+- In Stock.
+- Limited Stock.
+- Out of Stock.
+
+Stock must be validated against the backend.
+
+Never trust stale frontend stock information.
+
+---
+
+# PART 4 — CART QUANTITY MANAGEMENT
+
+Implement a premium quantity selector matching the reference screenshot.
+
+Each item must have:
+
+- Minus button.
+- Quantity display.
+- Plus button.
+
+Required behavior:
+
+1. Clicking Plus increases quantity by one.
+2. Clicking Minus decreases quantity by one.
+3. Quantity must never become negative.
+4. Respect product-specific minimum quantity.
+5. Respect maximum purchase quantity.
+6. Respect available stock.
+7. Respect variant-specific inventory.
+8. Update item subtotal.
+9. Update cart subtotal.
+10. Update tax where applicable.
+11. Update the grand total.
+12. Update the global cart badge.
+13. Persist the updated quantity in MongoDB.
+
+Use debouncing or another appropriate strategy to prevent unnecessary rapid API calls, without making the UI inconsistent.
+
+Handle concurrent requests safely.
+
+If the requested quantity exceeds stock, return a meaningful error and synchronize the frontend with the actual server-side quantity.
+
+Do not simulate quantity updates locally without backend persistence.
+
+IMPORTANT CART BUSINESS RULE:
+
+Preserve the existing project's Add to Cart behavior.
+
+Repeated Add to Cart clicks must follow the existing business rules.
+
+Do not accidentally increment product quantity when the user merely reopens or revisits the cart.
+
+Only explicit quantity controls or approved purchase actions should modify quantity according to the existing cart rules.
+
+---
+
+# PART 5 — REMOVE ITEM AND CLEAR CART
+
+## 5.1 Remove Individual Item
+
+Every cart item must have a remove icon.
+
+When clicked:
+
+- Display an appropriate confirmation if required.
+- Call the actual backend API.
+- Remove the correct cart item.
+- Update MongoDB.
+- Recalculate subtotal.
+- Recalculate tax.
+- Recalculate total.
+- Update the global cart count.
+- Display a premium success notification.
+
+Do not remove unrelated cart items.
+
+Handle API failures properly.
+
+## 5.2 Clear Cart
+
+The Clear Cart action must be available in the cart heading area.
+
+When clicked:
+
+1. Show a premium confirmation dialog.
+2. If confirmed, call the backend Clear Cart API.
+3. Remove the authenticated customer's cart items.
+4. Persist the updated cart state.
+5. Update the cart count.
+6. Update the order summary.
+7. Display the empty cart interface.
+
+Never clear another customer's cart.
+
+Do not merely hide cart items from the frontend.
+
+---
+
+# PART 6 — ORDER SUMMARY
+
+Reproduce the right-side Order Summary card.
+
+Include:
+
+- Subtotal.
+- Shipping.
+- Shipping information tooltip.
+- Tax.
+- Grand Total.
+- Proceed to Checkout button.
+- Wallet option, if supported.
+
+All amounts must be calculated from actual cart data and the existing pricing configuration.
+
+## 6.1 Subtotal
+
+Calculate:
+
+Sum of all valid cart item line totals.
+
+Respect selected product variants and quantities.
+
+## 6.2 Shipping
+
+Use the existing shipping configuration.
+
+Support applicable shipping rules such as:
+
+- Free shipping threshold.
+- Shipping zone.
+- Delivery method.
+- Product-specific shipping charges.
+
+Do not always show Free Shipping.
+
+Only display free shipping when the actual business rules qualify.
+
+If the project already supports shipping zones and Bangladesh delivery locations, reuse that implementation.
+
+## 6.3 Tax
+
+Use the existing tax/VAT configuration.
+
+Do not hardcode the screenshot's 10% tax rate.
+
+Tax calculations must follow the actual configured business rules.
+
+Avoid calculating tax twice.
+
+## 6.4 Grand Total
+
+The grand total must be calculated using the existing checkout pricing rules.
+
+The backend must independently calculate and validate the final amount.
+
+Never trust a total submitted by the frontend.
+
+Ensure that the cart summary and checkout summary use consistent calculations.
+
+## 6.5 Proceed to Checkout
+
+The Proceed to Checkout button must:
+
+1. Validate cart existence.
+2. Validate product availability.
+3. Validate selected variants.
+4. Validate quantities.
+5. Validate stock.
+6. Validate prices.
+7. Validate cart ownership.
+8. Navigate to the existing checkout page.
+
+Do not create a separate checkout system.
+
+Preserve the previously implemented checkout page and all its functionality.
+
+The selected cart items must reach checkout correctly.
+
+## 6.6 Wallet Integration
+
+If the existing project supports a wallet system, integrate it.
+
+Otherwise, hide the wallet payment shortcut rather than creating a fake payment experience.
+
+Do not display nonfunctional payment options.
+
+---
+
+# PART 7 — EMPTY CART EXPERIENCE
+
+Implement a premium empty cart state.
+
+When there are no items:
+
+- Show a suitable shopping cart illustration.
+- Display an Empty Cart heading.
+- Display a helpful message.
+- Show a Continue Shopping button.
+- Hide or appropriately disable the order summary.
+- Hide Clear Cart when unnecessary.
+
+The empty cart state must work after:
+
+- Removing the last item.
+- Clearing the cart.
+- Completing an order.
+- Cart expiration, if applicable.
+
+Do not display hardcoded product rows when the cart is empty.
+
+---
+
+# PART 8 — CONTINUE SHOPPING
+
+Include Continue Shopping buttons in the same positions as the reference.
+
+They must navigate to the correct existing storefront route.
+
+Preserve existing navigation behavior.
+
+Do not invent new routes if suitable routes already exist.
+
+---
+
+# PART 9 — YOU MAY ALSO LIKE / RECOMMENDED PRODUCTS
+
+Reproduce the bottom section shown in the screenshot.
+
+Heading:
+
+You May Also Like
+
+Display a premium horizontal product carousel.
+
+Each card should include:
+
+- Product image.
+- Product name.
+- Star rating.
+- Review count.
+- Current price.
+- Original price.
+- Discount information.
+- Wishlist icon.
+- Add to Cart button.
+
+### Recommendation Logic
+
+Retrieve actual products from MongoDB.
+
+Use an appropriate existing recommendation strategy based on:
+
+- Related categories.
+- Related subcategories.
+- Similar products.
+- Popular products.
+- Best sellers.
+- Featured products.
+- Customer browsing behavior, where supported.
+
+Avoid recommending products already present in the cart.
+
+Exclude unpublished and unavailable products.
+
+Do not hardcode recommendations.
+
+If no suitable recommendations exist, display a graceful empty state or hide the section.
+
+### Add to Cart Integration
+
+The Add to Cart button must connect to the existing cart service.
+
+It must:
+
+- Validate product.
+- Validate selected/default variant.
+- Validate stock.
+- Add the item.
+- Update cart persistence.
+- Update cart count.
+- Show success or error notifications.
+
+The wishlist icon must connect to the actual wishlist system.
+
+---
+
+# PART 10 — COMPLETE BACKEND AND API INTEGRATION
+
+Implement or extend the existing backend architecture.
+
+Do not introduce a second backend framework.
+
+Follow the existing project's conventions.
+
+Separate responsibilities appropriately.
+
+### Routes
+
+Reuse or extend existing cart routes.
+
+Where necessary, support:
+
+- Get Cart.
+- Add Cart Item.
+- Update Cart Item Quantity.
+- Remove Cart Item.
+- Clear Cart.
+- Get Cart Summary.
+- Get Cart Recommendations.
+- Get Active Cart Hero Banner.
+
+Do not create duplicate endpoints if equivalent endpoints already exist.
+
+### Controllers
+
+Controllers should handle request and response logic.
+
+Avoid placing all business logic directly inside route handlers.
+
+### Services
+
+Implement reusable cart business logic.
+
+Services should handle:
+
+- Cart retrieval.
+- Product validation.
+- Variant validation.
+- Quantity updates.
+- Stock validation.
+- Price calculation.
+- Shipping calculation.
+- Tax calculation.
+- Cart synchronization.
+- Cart clearing.
+- Recommendation retrieval.
+
+### Middleware
+
+Reuse existing:
+
+- Authentication middleware.
+- Admin authorization.
+- Request validation.
+- Error handling.
+- Rate limiting.
+- Upload middleware.
+
+Ensure protected customer operations use the authenticated customer's identity.
+
+Never accept an arbitrary customer ID from an untrusted request to access another user's cart.
+
+---
+
+# PART 11 — MONGODB DATABASE AND CART PERSISTENCE
+
+Investigate the existing cart schema before modifying it.
+
+Reuse the existing database model wherever possible.
+
+The cart system must support:
+
+- Customer ownership.
+- Product references.
+- Variant references.
+- SKU.
+- Quantity.
+- Selected options.
+- Timestamps.
+- Cart item identification.
+
+Preserve existing cart data.
+
+Do not delete or reset MongoDB collections.
+
+Do not replace the existing MongoDB Atlas connection.
+
+If guest cart support already exists, preserve it.
+
+If authenticated and guest carts are supported, ensure the login merge process does not create incorrect duplicate items or unexpected quantities.
+
+Use correct data consistency rules.
+
+Use transactions or atomic database operations where appropriate and supported.
+
+Avoid unnecessary database queries.
+
+Use appropriate indexes.
+
+---
+
+# PART 12 — ADMIN PANEL INTEGRATION
+
+The Admin Panel must remain functional.
+
+The main new admin requirement is Cart Hero Banner Management.
+
+However, audit the existing systems related to cart operations.
+
+## 12.1 Cart Hero Banner Administration
+
+Allow administrators to:
+
+- Create.
+- Edit.
+- Delete.
+- Preview.
+- Upload images.
+- Configure mobile images.
+- Change heading.
+- Change subtitle.
+- Configure CTA.
+- Configure visibility.
+- Schedule visibility where supported.
+- Change display priority.
+
+All changes must immediately reflect on the Cart Page according to the existing caching and content refresh strategy.
+
+## 12.2 Product Management Verification
+
+Verify that product information used by the cart is correctly managed from the Admin Panel.
+
+Check:
+
+- Product status.
+- Price.
+- Sale price.
+- Discount.
+- SKU.
+- Stock.
+- Variants.
+- Variant stock.
+- Product image.
+- Category.
+- Product visibility.
+
+When an administrator changes product price or stock, the cart must correctly handle the updated values.
+
+Do not silently charge customers outdated or manipulated prices.
+
+## 12.3 Order Management Integration
+
+Verify that the Cart Page correctly passes validated information to the existing checkout and order management system.
+
+Do not create orders merely by opening the cart.
+
+Only create an order after the existing checkout and order placement process succeeds.
+
+---
+
+# PART 13 — FINAL PRODUCTION AUDIT OF THE PRODUCT DETAILS PAGE
+
+This is a mandatory second objective.
+
+The Product Details Page was previously implemented using an earlier reference image.
+
+Now perform a complete final verification.
+
+Do not redesign it unnecessarily.
+
+Do not assume it works simply because its frontend looks correct.
+
+Inspect the actual code and test the entire data flow.
+
+## 13.1 Product Gallery Audit
+
+Verify:
+
+- Main image retrieval.
+- Gallery image retrieval.
+- Thumbnail switching.
+- Image ordering.
+- Hover zoom.
+- Fullscreen modal.
+- Previous/next navigation.
+- Keyboard navigation.
+- Mobile touch behavior.
+- Variant-specific images.
+- Admin image upload.
+- Image replacement.
+- Image deletion.
+- Database persistence.
+
+## 13.2 Product Variant Audit
+
+Verify:
+
+- Dynamic variant attributes.
+- Variant options.
+- Variant combinations.
+- Variant-specific SKU.
+- Variant-specific price.
+- Variant-specific inventory.
+- Variant-specific image.
+- Unavailable variant handling.
+- Frontend selection.
+- Backend validation.
+- Admin editing.
+- MongoDB persistence.
+
+## 13.3 Pricing and Inventory Audit
+
+Verify:
+
+- Regular price.
+- Sale price.
+- Discount calculation.
+- Variant pricing.
+- Stock availability.
+- Low-stock status.
+- Quantity restrictions.
+- Price synchronization.
+- Server-side validation.
+
+## 13.4 Add to Cart and Buy Now Audit
+
+Verify that:
+
+- Add to Cart calls the real API.
+- Correct product is added.
+- Correct variant is preserved.
+- Quantity is correct.
+- MongoDB persists cart data.
+- Global cart count updates.
+- Cart page displays the correct item.
+- Buy Now follows the existing checkout flow.
+- Invalid purchases are rejected.
+
+## 13.5 Wishlist Audit
+
+Verify:
+
+- Add to Wishlist.
+- Remove from Wishlist.
+- Customer-specific persistence.
+- Wishlist badge.
+- Login requirements.
+- Database synchronization.
+
+## 13.6 Review System Audit
+
+Verify:
+
+- Review modal.
+- Interactive star selector.
+- Review title.
+- Review description.
+- Form validation.
+- Review image upload, if supported.
+- Backend submission.
+- MongoDB persistence.
+- Duplicate review prevention.
+- Verified purchase validation.
+- Admin moderation.
+- Published review display.
+- Rating aggregation.
+- Review pagination.
+
+Do not trust a frontend verified purchase flag.
+
+## 13.7 Questions and Answers Audit
+
+Verify:
+
+- Question submission.
+- Database persistence.
+- Admin moderation.
+- Answer submission.
+- Publication.
+- Correct product association.
+
+## 13.8 Product Specification Audit
+
+Verify:
+
+- Dynamic specifications.
+- Category-specific attributes.
+- Admin editing.
+- Database persistence.
+- Customer-facing rendering.
+
+## 13.9 Related Products Audit
+
+Verify:
+
+- Actual product retrieval.
+- Related product filtering.
+- Correct images.
+- Correct prices.
+- Correct links.
+- Add to Cart.
+- Wishlist.
+- Mobile carousel.
+
+## 13.10 Admin Product Management Audit
+
+Verify that the administrator can correctly manage:
+
+- Product details.
+- Images.
+- Gallery.
+- Variants.
+- Pricing.
+- Stock.
+- Highlights.
+- Specifications.
+- Product descriptions.
+- Video, if supported.
+- Warranty.
+- Shipping information.
+- Related products.
+- SEO metadata.
+- Product visibility.
+
+If any feature only works visually but does not persist to MongoDB, fix it.
+
+If any feature has an API but is not connected to the frontend, fix the integration.
+
+If any feature is available in the frontend but missing from Admin Management, complete the necessary integration.
+
+Preserve existing working implementations.
+
+---
+
+# PART 14 — SECURITY AND DATA INTEGRITY
+
+Verify and implement appropriate protection.
+
+Mandatory checks:
+
+1. Authenticated cart ownership.
+2. Admin authorization.
+3. Customer data isolation.
+4. Product validation.
+5. Variant validation.
+6. Stock validation.
+7. Server-side price calculation.
+8. Quantity validation.
+9. NoSQL injection protection.
+10. XSS protection.
+11. Secure file uploads.
+12. Safe error handling.
+13. API validation.
+14. Rate limiting where appropriate.
+15. Database consistency.
+16. Prevention of unauthorized cart access.
+17. Prevention of unauthorized banner management.
+18. Protection against price manipulation.
+19. Protection against stock manipulation.
+
+Never trust frontend-submitted:
+
+- Price.
+- Discount.
+- Shipping charge.
+- Tax amount.
+- Grand total.
+- Stock quantity.
+- Customer identity.
+- Product ownership.
+
+The backend must be authoritative.
+
+---
+
+# PART 15 — RESPONSIVE DESIGN
+
+The screenshot represents a desktop-oriented layout.
+
+Reproduce the desktop design and adapt it professionally to all devices.
+
+### Desktop
+
+- Full-width hero banner.
+- Large left cart items card.
+- Right order summary.
+- Bottom recommended product carousel.
+
+### Tablet
+
+- Adjust column proportions.
+- Maintain readable cart rows.
+- Reposition the order summary when necessary.
+- Preserve all controls.
+
+### Mobile
+
+- Compact hero banner.
+- Product image and information arranged efficiently.
+- Accessible quantity selector.
+- Clearly visible remove button.
+- Order summary below cart items.
+- Full-width checkout button.
+- Horizontal recommended product carousel.
+- No overlapping elements.
+
+Test at common mobile widths.
+
+Ensure:
+
+- No horizontal overflow.
+- No broken images.
+- No clipped buttons.
+- No inaccessible modals.
+- No layout shifts.
+- No unreadable text.
+- No broken navigation.
+
+---
+
+# PART 16 — VISUAL DESIGN AND TYPOGRAPHY
+
+Match the reference screenshot closely.
+
+Use:
+
+- Premium green color palette.
+- White background.
+- Light green banner.
+- Dark navy typography.
+- Rounded cards.
+- Subtle borders.
+- Soft shadows.
+- Consistent spacing.
+- Premium product images.
+- Modern icons.
+- Clear visual hierarchy.
+- Smooth hover transitions.
+
+Typography should match the screenshot's clean, modern appearance.
+
+Reuse the existing project's font system where possible.
+
+Preserve Bengali character rendering if the storefront supports Bengali.
+
+Do not replace global typography unnecessarily.
+
+Do not use excessive animations.
+
+Do not introduce unrelated visual redesigns.
+
+---
+
+# PART 17 — PERFORMANCE AND RELIABILITY
+
+Optimize:
+
+- Cart retrieval.
+- Cart updates.
+- Product image loading.
+- Recommendation queries.
+- Database queries.
+- API response handling.
+- Frontend rendering.
+- Mobile performance.
+
+Avoid unnecessary repeated API requests.
+
+Use appropriate caching and invalidation.
+
+Ensure cart totals remain synchronized after each operation.
+
+Ensure a page refresh does not unexpectedly empty a persisted authenticated cart.
+
+Handle expired sessions correctly.
+
+Do not show stale cart information as confirmed data.
+
+---
+
+# PART 18 — COMPLETE TESTING AND REGRESSION VERIFICATION
+
+Perform actual tests.
+
+## Cart Page Tests
+
+1. Open an empty cart.
+2. Verify empty cart interface.
+3. Add a product from Product Details.
+4. Open the Cart Page.
+5. Verify the correct product.
+6. Verify product image.
+7. Verify variant.
+8. Verify price.
+9. Increase quantity.
+10. Decrease quantity.
+11. Remove an item.
+12. Clear the cart.
+13. Verify subtotal.
+14. Verify shipping.
+15. Verify tax.
+16. Verify grand total.
+17. Proceed to checkout.
+18. Refresh the page.
+19. Verify persistence.
+20. Test mobile layout.
+
+## Product Details Regression Tests
+
+1. Product gallery.
+2. Thumbnail switching.
+3. Image zoom.
+4. Fullscreen modal.
+5. Variant selection.
+6. Variant pricing.
+7. Stock validation.
+8. Add to Cart.
+9. Buy Now.
+10. Wishlist.
+11. Reviews.
+12. Review submission.
+13. Review moderation.
+14. Questions and Answers.
+15. Specifications.
+16. Related products.
+17. Admin product editing.
+
+## Admin Tests
+
+1. Create Cart Hero Banner.
+2. Edit Cart Hero Banner.
+3. Upload banner image.
+4. Preview banner.
+5. Disable banner.
+6. Enable banner.
+7. Delete banner.
+8. Verify storefront changes.
+9. Verify homepage hero slider remains unchanged.
+10. Verify existing product management.
+
+## Regression Tests
+
+Verify that these existing modules continue to work:
+
+- Homepage.
+- Hero Slider.
+- Homepage Banners.
+- Categories.
+- Shop.
+- Search.
+- Product Details.
+- Wishlist.
+- Cart.
+- Checkout.
+- Payment Methods.
+- Order Placement.
+- Customer Account.
+- My Orders.
+- Admin Dashboard.
+- Product Management.
+- Order Management.
+- Existing navigation.
+
+Do not break existing functionality.
+
+Run the actual available project scripts:
+
+- npm run lint
+- npm run typecheck
+- npm test
+- npm run build
+
+Only run scripts that exist in package.json.
+
+Fix errors introduced by your implementation.
+
+Do not fabricate test results.
+
+---
+
+# PART 19 — STRICT CHANGE CONTROL
+
+These requirements are extremely important.
+
+1. Preserve the existing project architecture.
+2. Preserve the existing database connection.
+3. Preserve existing authentication.
+4. Preserve existing payment integration.
+5. Preserve existing checkout logic.
+6. Preserve existing order creation logic.
+7. Preserve existing homepage design.
+8. Preserve existing homepage hero slides.
+9. Preserve existing homepage banners.
+10. Preserve existing navigation.
+11. Preserve existing Product Details functionality.
+12. Preserve existing API contracts where possible.
+13. Preserve existing route URLs.
+14. Preserve existing Admin Panel modules.
+15. Do not delete production data.
+16. Do not replace real APIs with mock APIs.
+17. Do not introduce hardcoded cart products.
+18. Do not create fake pricing.
+19. Do not create fake stock.
+20. Do not introduce unnecessary dependencies.
+21. Do not perform unrelated refactoring.
+22. Do not change unrelated shared components.
+23. Do not claim that a feature works without verifying it.
+
+Make the smallest safe set of changes required to achieve the requested result.
+
+---
+
+# PART 20 — EXECUTION ORDER
+
+Follow this exact order.
+
+PHASE 1:
+Inspect the complete existing repository.
+
+PHASE 2:
+Audit the previously implemented Product Details Page and Admin Product Management.
+
+PHASE 3:
+Document all actual issues and missing integrations.
+
+PHASE 4:
+Implement necessary Product Details Page fixes without unnecessary redesign.
+
+PHASE 5:
+Investigate the existing cart architecture and MongoDB cart schema.
+
+PHASE 6:
+Design and implement the new Cart Page based on the uploaded screenshot.
+
+PHASE 7:
+Implement the dynamic Cart Hero Banner and Admin Panel controls.
+
+PHASE 8:
+Connect all cart operations to real backend APIs and MongoDB.
+
+PHASE 9:
+Implement quantity, removal, clear cart, pricing, shipping, tax, and checkout integration.
+
+PHASE 10:
+Implement dynamic recommendations.
+
+PHASE 11:
+Test the entire Cart and Product Details user journey.
+
+PHASE 12:
+Perform responsive and regression testing.
+
+PHASE 13:
+Run available lint, typecheck, tests, and production build.
+
+PHASE 14:
+Prepare the final engineering report.
+
+Do not stop after creating a plan.
+
+Do not only describe the required changes.
+
+Actually implement the working code in the repository.
+
+---
+
+# PART 21 — FINAL ENGINEERING REPORT
+
+After implementation, report:
+
+## A. Product Details Page Final Audit
+
+- Product Gallery status.
+- Image Zoom status.
+- Variant functionality.
+- Pricing functionality.
+- Stock validation.
+- Add to Cart.
+- Buy Now.
+- Wishlist.
+- Reviews.
+- Review Moderation.
+- Questions and Answers.
+- Specifications.
+- Related Products.
+- Admin Product Management.
+- MongoDB persistence.
+- API integration.
+
+## B. Cart Page Implementation
+
+- Reference design implementation.
+- Cart Hero Banner.
+- Admin Banner Management.
+- Product Item Cards.
+- Quantity Controls.
+- Remove Item.
+- Clear Cart.
+- Subtotal.
+- Shipping.
+- Tax.
+- Grand Total.
+- Proceed to Checkout.
+- Empty Cart.
+- Recommended Products.
+- Responsive Design.
+
+## C. Backend and Database
+
+- Modified API routes.
+- Modified controllers.
+- Modified services.
+- Modified middleware.
+- Modified MongoDB schemas.
+- Database indexes.
+- Validation and security changes.
+
+## D. Modified Files
+
+List the actual modified file paths and briefly describe their changes.
+
+## E. Testing Results
+
+Report actual results for:
+
+- Lint.
+- TypeScript.
+- Tests.
+- Production Build.
+- Cart API.
+- Product Details APIs.
+- Admin Banner APIs.
+- MongoDB Persistence.
+- Responsive Verification.
+
+Clearly distinguish:
+
+- Implemented.
+- Tested and verified.
+- Partially implemented.
+- Blocked by external configuration.
+
+Never claim success without evidence.
+
+---
+
+# FINAL NON-NEGOTIABLE DIRECTIVE
+
+I am providing the Cart Page reference screenshot.
+
+First, carefully inspect and understand every visible component in the screenshot.
+
+Then reproduce its design as closely as reasonably possible.
+
+The final Cart Page must include:
+
+- Existing website header.
+- Dynamic administrator-controlled Cart Hero Banner.
+- Shopping Cart Items.
+- Product Images.
+- Product Names.
+- Ratings.
+- Stock Status.
+- Dynamic Pricing.
+- Quantity Controls.
+- Remove Item.
+- Clear Cart.
+- Order Summary.
+- Shipping.
+- Tax.
+- Grand Total.
+- Proceed to Checkout.
+- Continue Shopping.
+- You May Also Like.
+- Dynamic Recommended Products.
+- Existing Website Footer.
+
+All functionality must be connected to the actual frontend, backend, APIs, authentication, MongoDB, and Admin Panel.
+
+At the same time, complete the final production audit of the previously implemented Product Details Page.
+
+Do not redesign the Product Details Page unnecessarily. Fix actual problems and verify its existing functionality.
+
+Do not break the Homepage, Product Details Page, Checkout, Wishlist, Orders, Admin Panel, or existing business logic.
+
+**I want two completed outcomes:**
+
+1. A fully audited, correctly working Product Details System.
+2. A premium, reference-matching, fully functional Shopping Cart System.
+
+**A beautiful frontend without real backend and database integration is NOT acceptable.**
+
+Deliver production-oriented, secure, maintainable, responsive, and genuinely functional code.
+
+Start by investigating the repository, then implement, test, verify, and report the actual results.

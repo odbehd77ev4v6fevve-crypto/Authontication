@@ -1,0 +1,962 @@
+# MASTER PROMPT — COMPLETE PRODUCTION-LEVEL BUG FIXING, SECURITY HARDENING & FULL-STACK REMEDIATION
+
+## ROLE & RESPONSIBILITY
+
+Act as a Principal Software Engineer, Senior Full-Stack Architect, Application Security Engineer, Database Engineer, Payment Integration Specialist, QA Automation Engineer, and Production DevOps Engineer.
+
+You are responsible for taking my existing single-vendor e-commerce application from its current partially functional state to a properly engineered, secure, reliable, and production-ready state.
+
+This is NOT a superficial bug-fixing task.
+
+This is NOT a frontend-only improvement.
+
+This is NOT a code cleanup or redesign task.
+
+You must investigate every reported issue, identify its actual root cause, verify it against the existing source code, implement a complete solution, and validate the result through appropriate tests.
+
+**ALL CONFIRMED ISSUES IDENTIFIED IN THE PREVIOUS AUDIT REPORT ARE MANDATORY REQUIREMENTS. NONE OF THEM MAY BE IGNORED, SKIPPED, OR PARTIALLY FIXED.**
+
+---
+
+# PHASE 1 — READ, UNDERSTAND & VERIFY BEFORE CHANGING ANYTHING
+
+Before modifying any file, perform a comprehensive investigation of the entire repository.
+
+First, carefully read:
+
+1. The complete previous audit report.
+2. README and project documentation.
+3. package.json and all relevant dependencies.
+4. Frontend source code.
+5. Backend source code.
+6. Express routes and API endpoints.
+7. Controllers and service layers.
+8. Authentication and authorization middleware.
+9. Database models and schemas.
+10. Payment gateway integrations.
+11. Admin panel modules and pages.
+12. Analytics, reporting, and chart implementations.
+13. TypeScript configurations.
+14. Environment variable handling.
+15. Existing automated tests.
+16. Build, deployment, and production configuration.
+
+Do not assume that the previous audit findings are automatically correct.
+
+For EVERY reported issue:
+
+- Locate the actual implementation.
+- Identify the affected files and dependencies.
+- Trace the complete execution flow.
+- Reproduce the issue where possible.
+- Identify the actual root cause.
+- Determine whether related components, APIs, database records, or other modules are affected.
+- Verify the proposed fix against the existing architecture.
+
+Create an internal issue-tracking checklist.
+
+Every confirmed issue must have a clear remediation status.
+
+**MANDATORY: Do not start implementing fixes until you understand the existing architecture and the root cause of each issue.**
+
+---
+
+# PHASE 2 — FIX ALL REPORTED BACKEND TYPESCRIPT ERRORS
+
+The previous audit reported duplicate identifiers and TypeScript errors.
+
+You must:
+
+1. Locate every duplicate import, declaration, identifier, and conflicting symbol.
+2. Inspect all TypeScript compiler errors.
+3. Identify whether errors originate from incorrect imports, duplicate declarations, incompatible types, or incorrect module usage.
+4. Resolve the actual causes.
+5. Preserve existing functionality and exports.
+6. Ensure that all backend modules use consistent and correct types.
+7. Avoid using `any` as a shortcut.
+8. Do not suppress errors using `@ts-ignore`, `@ts-nocheck`, or unnecessary compiler configuration changes.
+9. Do not disable strict TypeScript checks just to make the build pass.
+
+Run the actual TypeScript checks and production build.
+
+**Acceptance criteria:**
+- No unresolved TypeScript errors.
+- No duplicate identifier errors.
+- No broken imports or exports.
+- No hidden compiler errors.
+- Existing functionality remains intact.
+
+---
+
+# PHASE 3 — PAYMENT GATEWAY: COMPLETE PRODUCTION-LEVEL REMEDIATION
+
+Payment processing is one of the highest-priority areas.
+
+The previous audit identified critical problems involving SSLCommerz IPN verification, refund processing, payment status inconsistencies, sandbox/live configuration, and payment-state handling.
+
+You must investigate the complete payment lifecycle.
+
+## A. SSLCommerz IPN Security
+
+Inspect the complete implementation of:
+
+- Payment initiation.
+- Payment session creation.
+- Success callback.
+- Failure callback.
+- Cancel callback.
+- IPN endpoint.
+- Payment validation.
+- Order payment-status updates.
+- Transaction records.
+- Duplicate callback handling.
+
+**CRITICAL SECURITY REQUIREMENT:**
+
+Never trust an incoming IPN or success callback simply because it was received.
+
+Before changing any order or payment status, the backend must perform the provider-supported payment validation.
+
+Verify all relevant information, including:
+
+- Transaction ID.
+- Order reference.
+- Payment amount.
+- Currency.
+- Payment status.
+- Provider validation response.
+- Transaction authenticity.
+- Correspondence between the payment and the original order.
+
+Use the official provider-supported validation mechanism.
+
+Never allow an unverified request to mark an order as paid.
+
+Implement proper idempotency so repeated callbacks cannot process the same payment multiple times.
+
+Handle invalid, incomplete, delayed, duplicated, and out-of-order callbacks safely.
+
+Use database transactions or another appropriate consistency mechanism where supported.
+
+## B. Real Refund Processing
+
+The previous audit reported that refund records are created in MongoDB without necessarily performing a real provider-side refund.
+
+This must be investigated and fixed.
+
+Requirements:
+
+1. Inspect the current refund architecture.
+2. Identify the actual payment provider used for each transaction.
+3. Integrate the provider's officially supported refund API where available.
+4. Never mark a refund as successful merely because a MongoDB record was created.
+5. Maintain accurate refund statuses.
+6. Handle pending, successful, failed, and rejected refunds.
+7. Prevent duplicate refund requests.
+8. Store provider transaction and refund references.
+9. Record refund history and audit information.
+10. Handle provider errors and retry situations safely.
+
+If a provider does not support automated refunds for a particular transaction, implement a transparent admin-managed refund workflow. Clearly distinguish an initiated refund from a confirmed provider refund.
+
+## C. Payment Status Consistency
+
+Investigate the mismatch between frontend payment-status names and backend API responses.
+
+Create one consistent payment-status contract.
+
+Verify:
+
+- Backend response types.
+- Frontend TypeScript types.
+- Order payment status.
+- Transaction status.
+- Refund status.
+- Admin payment display.
+- Customer order tracking.
+- Payment confirmation pages.
+
+Do not solve this through frontend-only mapping.
+
+The backend and frontend must use a consistent, documented contract.
+
+## D. Sandbox and Live Mode
+
+Fix the reported sandbox/live configuration problem.
+
+Requirements:
+
+- Correct environment-based provider configuration.
+- Separate sandbox and production credentials.
+- Correct provider endpoints for each environment.
+- No accidental sandbox-to-live mixing.
+- No hardcoded secrets.
+- Safe configuration validation during application startup.
+- No exposure of private credentials in frontend code or API responses.
+
+Never silently fall back to an incorrect payment environment.
+
+## E. Payment Reliability
+
+Verify:
+
+- Failed payment handling.
+- Pending payment handling.
+- Payment timeout.
+- Duplicate payment prevention.
+- Order creation.
+- Stock reservation and release.
+- Payment reconciliation.
+- Transaction history.
+- Payment webhook security.
+
+**Acceptance criteria:** A payment is successful only when independently verified by the backend through the provider-supported process.
+
+---
+
+# PHASE 4 — AUTHENTICATION & AUTHORIZATION SECURITY
+
+The previous audit identified authentication and security risks.
+
+You must perform a complete authentication security audit.
+
+Investigate:
+
+- Login.
+- Registration.
+- Password hashing.
+- Password reset.
+- Email verification, if implemented.
+- JWT creation.
+- JWT verification.
+- Token expiration.
+- Refresh-token handling, if implemented.
+- Logout.
+- Admin authentication.
+- Role-based access control.
+- Protected routes.
+- Authentication middleware.
+- Session and cookie configuration.
+- Google or other social authentication, if present.
+
+## A. Production JWT Secret
+
+Fix the reported issue where a missing production JWT secret may fall back to a randomly generated secret.
+
+Requirements:
+
+- Require a valid JWT secret in production.
+- Fail application startup if a required production secret is missing or invalid.
+- Never generate a random replacement production secret at runtime.
+- Never expose secrets through logs or API responses.
+- Validate environment configuration before accepting requests.
+
+## B. Role-Based Access Control
+
+Verify that:
+
+- Customers cannot access admin APIs.
+- Unauthorized users cannot modify products, orders, payments, users, or settings.
+- Admin-only actions are protected on the backend.
+- Authorization is enforced at the API level, not only through hidden frontend buttons.
+- Roles and permissions are checked consistently.
+- User-controlled role values cannot grant administrative access.
+
+## C. Authentication Reliability
+
+Test:
+
+- Invalid credentials.
+- Expired tokens.
+- Missing tokens.
+- Tampered tokens.
+- Unauthorized API requests.
+- Account access restrictions.
+- Token refresh behavior, if implemented.
+- Secure logout behavior.
+
+Use appropriate secure cookie settings, CORS policies, rate limiting, and input validation according to the existing authentication architecture.
+
+Do not introduce unnecessary authentication redesigns.
+
+**Acceptance criteria:** All authentication and authorization protections must work on the actual backend.
+
+---
+
+# PHASE 5 — COUPON, CHECKOUT & ORDER CONSISTENCY
+
+The previous audit reported that coupon redemption may not be rolled back correctly when checkout fails.
+
+Investigate the entire checkout process.
+
+Verify:
+
+1. Cart validation.
+2. Product availability.
+3. Stock validation.
+4. Coupon validation.
+5. Coupon usage limits.
+6. Per-user redemption limits.
+7. Discount calculation.
+8. Shipping calculation.
+9. Tax calculation.
+10. Order creation.
+11. Payment initiation.
+12. Failed checkout handling.
+13. Coupon usage persistence.
+14. Stock reservation and release.
+
+Implement appropriate database transactions, atomic operations, or compensating operations.
+
+A failed checkout must not leave invalid coupon usage records, incorrect stock quantities, or inconsistent order/payment records.
+
+Prevent race conditions when multiple users attempt to purchase limited stock or redeem limited coupons.
+
+---
+
+# PHASE 6 — ANALYTICS, DASHBOARD & ALL ADMIN CHARTS
+
+This is a mandatory major task.
+
+The previous audit identified incorrect dashboard analytics and chart calculations.
+
+Do not merely adjust chart colors, labels, or frontend values.
+
+Investigate the complete analytics pipeline:
+
+Frontend Dashboard → Analytics API → Controller → Service → MongoDB Aggregation → Response → Chart Components.
+
+Inspect every dashboard metric and chart.
+
+Examples include:
+
+- Total revenue.
+- Total orders.
+- Total customers.
+- Total products.
+- Average order value.
+- Daily revenue.
+- Weekly revenue.
+- Monthly revenue.
+- Yearly revenue.
+- Order status distribution.
+- Payment method distribution.
+- Product performance.
+- Best-selling products.
+- Category performance.
+- Customer activity.
+- Sales trends.
+- Refund analytics.
+- Coupon usage.
+- Inventory statistics.
+
+These are investigation targets. Preserve existing dashboard functionality and include all existing metrics.
+
+## Required analytics rules
+
+1. Identify which order statuses should count toward revenue.
+2. Exclude cancelled, unpaid, failed, or refunded orders where appropriate.
+3. Handle partial refunds correctly.
+4. Avoid counting the same order multiple times.
+5. Use correct date boundaries and timezone handling.
+6. Ensure date filters actually affect database queries.
+7. Use real MongoDB data, not dummy chart arrays.
+8. Handle empty datasets.
+9. Handle large datasets efficiently.
+10. Use appropriate database indexes.
+11. Ensure chart totals match the underlying database records.
+12. Ensure all displayed numbers have consistent definitions.
+
+Investigate every existing chart individually.
+
+For each chart, verify:
+
+- API endpoint.
+- Aggregation logic.
+- Response structure.
+- Date filtering.
+- Frontend data mapping.
+- Labels.
+- Units.
+- Calculated values.
+- Empty states.
+- Error states.
+- Loading states.
+
+Do not invent analytics values.
+
+Do not display fake success metrics.
+
+If a metric cannot be calculated reliably from existing data, identify the missing data or required business rule instead of fabricating a result.
+
+**Acceptance criteria:** Dashboard numbers and charts must be traceable to actual database records and independently verifiable calculations.
+
+---
+
+# PHASE 7 — ADMIN PANEL: COMPLETE PRODUCTION-LEVEL VERIFICATION
+
+The previous audit indicated that the Admin Panel is only partially complete.
+
+That is not acceptable.
+
+Perform a complete audit of the entire Admin Panel.
+
+Inspect every existing page, menu, submenu, dashboard widget, table, form, chart, filter, action, and modal.
+
+Do not assume a page works simply because it renders correctly.
+
+For every existing admin module, verify:
+
+- Page loading.
+- API integration.
+- Database integration.
+- List operations.
+- Create operations.
+- Read operations.
+- Update operations.
+- Delete operations.
+- Search.
+- Filtering.
+- Sorting.
+- Pagination.
+- Form validation.
+- Loading states.
+- Empty states.
+- Error handling.
+- Permission checks.
+- Data persistence.
+- Refresh behavior.
+
+Verify that admin operations are connected to real backend APIs and MongoDB.
+
+A frontend button that displays a success notification without completing the corresponding backend operation is not acceptable.
+
+Check all existing admin modules, including any applicable:
+
+- Dashboard.
+- Products.
+- Categories.
+- Orders.
+- Customers.
+- Payments.
+- Refunds.
+- Coupons.
+- Inventory.
+- Reviews.
+- Reports.
+- Analytics.
+- Notifications.
+- Settings.
+- Tax and VAT.
+- Shipping.
+- Navigation.
+- Banners.
+- Hero slides.
+- Blog posts.
+- Custom pages.
+- Media management.
+- Audit logs.
+- User and role management.
+
+This is not permission to create duplicate modules or redesign the admin panel.
+
+Preserve the current menu structure and existing features.
+
+Fix incomplete functionality at the correct architectural layer.
+
+**Acceptance criteria:** Every existing admin operation must perform its intended real operation with proper authorization, validation, persistence, and error handling.
+
+---
+
+# PHASE 8 — REPORTS, CSV EXPORT & TAX CALCULATIONS
+
+The previous audit reported problems with CSV date filtering and tax calculations.
+
+Investigate the entire report-generation pipeline.
+
+Requirements:
+
+1. Correct start-date and end-date filtering.
+2. Correct timezone handling.
+3. Accurate order filtering.
+4. Accurate revenue calculations.
+5. Accurate tax calculations.
+6. Correct discount treatment.
+7. Correct shipping treatment.
+8. Correct refund treatment.
+9. Correct CSV column mapping.
+10. Correct currency formatting.
+11. Safe handling of empty reports.
+12. Proper authorization for report exports.
+
+Ensure exported data matches the corresponding admin dashboard and database calculations.
+
+Never calculate tax using arbitrary hardcoded assumptions.
+
+Follow the existing tax configuration and business rules.
+
+---
+
+# PHASE 9 — ABANDONED ORDERS & INVENTORY MANAGEMENT
+
+The previous audit also identified a potential issue involving abandoned-order stock release.
+
+Investigate the existing stock reservation and order expiration logic.
+
+Verify:
+
+- When stock is reserved.
+- When payment is pending.
+- When payment succeeds.
+- When payment fails.
+- When an order expires.
+- When an order is cancelled.
+- When stock is released.
+- Whether the same stock can be released twice.
+
+If a background worker or scheduled job is required, implement it using an appropriate production-compatible approach.
+
+Requirements:
+
+- Idempotent execution.
+- Safe retry behavior.
+- No duplicate stock release.
+- No accidental stock overselling.
+- Clear order-state transitions.
+- Reliable error logging.
+
+Do not rely on an in-memory timer that stops working when the application restarts or scales across multiple instances.
+
+Use the project's existing infrastructure where possible.
+
+---
+
+# PHASE 10 — BACKEND API COMPLETE AUDIT
+
+The previous audit identified backend API problems.
+
+Do not assume only the previously reported endpoints are affected.
+
+Inspect all existing API routes and verify the full request-response lifecycle.
+
+For every endpoint, inspect:
+
+- HTTP method.
+- Route registration.
+- Authentication.
+- Authorization.
+- Request validation.
+- Controller.
+- Service.
+- Database operation.
+- Response schema.
+- Error handling.
+- Status codes.
+- Security implications.
+
+Fix:
+
+- Incorrect HTTP status codes.
+- Inconsistent response structures.
+- Missing validation.
+- Incorrect database queries.
+- Missing authorization.
+- Incorrect error handling.
+- Unhandled asynchronous failures.
+- Duplicate operations.
+- Race conditions.
+- Incorrect pagination.
+- Invalid filters.
+- Broken frontend/backend contracts.
+
+Use centralized error handling where consistent with the existing architecture.
+
+Do not expose stack traces, database details, internal secrets, or sensitive information to public API responses.
+
+Do not replace existing APIs unnecessarily.
+
+Preserve existing endpoint URLs and contracts unless a verified issue makes a change essential. If a contract must change, update every dependent frontend and backend consumer together.
+
+---
+
+# PHASE 11 — DATABASE INTEGRITY & PERFORMANCE
+
+Inspect all relevant MongoDB models, schemas, indexes, and queries.
+
+Verify:
+
+- Schema validation.
+- Required fields.
+- Unique constraints.
+- Referential consistency.
+- Order and payment relationships.
+- Transaction consistency.
+- Coupon usage records.
+- Refund records.
+- Inventory updates.
+- User roles.
+- Analytics aggregations.
+- Database indexes.
+
+Investigate N+1 queries and inefficient aggregation pipelines.
+
+Use atomic updates and MongoDB transactions where appropriate and supported by the actual deployment topology.
+
+Do not introduce destructive database migrations.
+
+Do not delete existing production data.
+
+If a migration is necessary:
+
+1. Explain why it is necessary.
+2. Make it backward-compatible where possible.
+3. Provide a safe migration strategy.
+4. Avoid destructive defaults.
+5. Include rollback or recovery guidance.
+
+Never use MongoMemoryServer as a substitute for the real MongoDB Atlas integration test.
+
+---
+
+# PHASE 12 — ADMIN SECURITY, VALIDATION & AUDIT TRAIL
+
+Ensure sensitive administrative operations are protected.
+
+Verify:
+
+- Admin-only access.
+- Input sanitization.
+- Server-side validation.
+- Rate limiting where appropriate.
+- Secure file upload handling.
+- Sensitive configuration protection.
+- Audit logging for critical operations.
+- Payment and refund activity tracking.
+- User and role changes.
+- Product and order changes.
+
+Do not store plaintext passwords, payment secrets, or unnecessary sensitive information in logs.
+
+Ensure logs are useful for debugging without leaking confidential information.
+
+---
+
+# PHASE 13 — TESTING: NO FAKE VERIFICATION
+
+Testing is mandatory.
+
+Do not claim that something is production-ready simply because the frontend loads or the build succeeds.
+
+Perform the following where applicable:
+
+## A. Static checks
+
+- TypeScript checks.
+- ESLint.
+- Production build.
+- Dependency and configuration checks.
+
+## B. Unit tests
+
+Test:
+
+- Payment validation.
+- Refund status handling.
+- Authentication.
+- Authorization.
+- Coupon calculations.
+- Tax calculations.
+- Inventory operations.
+- Analytics calculations.
+- Date filtering.
+- CSV generation.
+
+## C. Integration tests
+
+Test the real interaction between:
+
+- Express routes.
+- Middleware.
+- Controllers.
+- Services.
+- MongoDB models.
+- Payment-related services.
+- Frontend API contracts.
+
+## D. End-to-end scenarios
+
+Test complete workflows:
+
+1. Customer registration and login.
+2. Admin login.
+3. Product browsing.
+4. Add to cart.
+5. Checkout.
+6. Successful payment.
+7. Failed payment.
+8. Duplicate payment callback.
+9. Order status update.
+10. Order cancellation.
+11. Refund request.
+12. Refund completion or failure.
+13. Coupon redemption.
+14. Stock reservation and release.
+15. Dashboard analytics.
+16. CSV export.
+17. Admin CRUD operations.
+
+## E. Regression tests
+
+Verify that existing features continue working after the fixes.
+
+Do not delete or weaken existing tests to obtain a passing result.
+
+Do not mock critical production behavior in a way that hides actual integration problems.
+
+---
+
+# PHASE 14 — PRODUCTION ENVIRONMENT & DEPLOYMENT SAFETY
+
+Inspect the actual production configuration.
+
+Verify all required environment variables.
+
+Examples may include:
+
+- MONGODB_URI
+- JWT_SECRET
+- Payment provider credentials.
+- SSLCommerz configuration.
+- Frontend origin.
+- Backend origin.
+- CORS configuration.
+- Email provider credentials.
+- Other required application secrets.
+
+Discover the actual variable names from the repository instead of inventing replacements.
+
+Requirements:
+
+1. Validate required environment variables at startup.
+2. Fail safely when critical production configuration is missing.
+3. Never expose secrets in frontend bundles.
+4. Never commit `.env` files.
+5. Keep sandbox and live credentials separate.
+6. Ensure production error handling is safe.
+7. Ensure database connections recover appropriately.
+8. Ensure scheduled workers operate reliably across restarts.
+9. Ensure deployment does not require local-only services.
+
+Do not print secret values in the final report.
+
+If access to a real external service is unavailable, do not pretend that its live integration has been tested.
+
+---
+
+# PHASE 15 — STRICT CHANGE CONTROL: DO NOT DAMAGE EXISTING PROJECT
+
+This section is extremely important.
+
+I want the existing application fixed, NOT rebuilt.
+
+**DO NOT unnecessarily change:**
+
+- Existing UI design.
+- Homepage design.
+- Admin panel layout.
+- Color system.
+- Typography.
+- Spacing.
+- Responsive design.
+- Existing components.
+- Existing component hierarchy.
+- Existing URLs.
+- Existing API endpoints.
+- Existing business logic.
+- Existing working functions.
+- Existing routing.
+- Existing navigation.
+- Existing features.
+- Existing database structure.
+- Existing user workflows.
+
+Do not perform unrelated refactoring.
+
+Do not replace entire components when a targeted fix is sufficient.
+
+Do not rewrite working modules.
+
+Do not remove existing functionality.
+
+Do not introduce duplicate components, APIs, routes, or admin modules.
+
+Do not install unnecessary dependencies.
+
+Do not change the project's architecture just because another architecture is preferred.
+
+### Change policy
+
+Only make changes that are directly necessary to:
+
+1. Fix a confirmed bug.
+2. Eliminate a verified security vulnerability.
+3. Correct an actual data-integrity issue.
+4. Complete a confirmed incomplete production workflow.
+5. Make a required frontend/backend contract consistent.
+6. Add essential tests or safe configuration validation.
+
+If a change to an existing component or function is necessary, preserve its current behavior wherever possible.
+
+Before changing a shared component or common service, inspect every dependent module to prevent regressions.
+
+If you discover an issue that cannot be safely fixed without a significant architectural or design change, explain the reason and propose the smallest safe solution. Do not silently make broad changes.
+
+---
+
+# PHASE 16 — MANDATORY IMPLEMENTATION WORKFLOW
+
+Follow this exact sequence:
+
+### Step 1 — Full Repository Investigation
+Read the audit report and inspect the complete repository.
+
+### Step 2 — Issue Verification
+Find every reported issue in the actual implementation and verify its root cause.
+
+### Step 3 — Dependency Mapping
+Identify all affected routes, components, controllers, services, models, and external integrations.
+
+### Step 4 — Prioritization
+Prioritize:
+
+- P0: Payment security, authentication vulnerabilities, financial data integrity, critical TypeScript/build errors.
+- P1: Payment lifecycle, refunds, checkout consistency, analytics accuracy, admin API functionality, reporting.
+- P2: Performance, maintainability, secondary admin improvements, and non-critical issues.
+
+### Step 5 — Implement Real Fixes
+Fix each confirmed issue at the correct architectural layer.
+
+### Step 6 — Add Regression Protection
+Create or update tests for every resolved issue.
+
+### Step 7 — Run Full Validation
+Run static checks, tests, production build, and available integration tests.
+
+### Step 8 — Verify Existing Features
+Ensure that unrelated existing features and UI behavior have not been damaged.
+
+### Step 9 — Final Issue Reconciliation
+Compare every issue in the original audit report against the final implementation and test evidence.
+
+### Step 10 — Final Production Assessment
+Report exactly what has been fixed, what has been tested, and what remains blocked.
+
+---
+
+# PHASE 17 — STRICT DEFINITION OF DONE
+
+A task is NOT complete simply because:
+
+- A file was edited.
+- A button works visually.
+- An API returns HTTP 200.
+- A database record was created.
+- A chart renders.
+- A payment success page appears.
+- TypeScript errors were hidden.
+- A test was mocked.
+- A build succeeded.
+
+A task is complete only when the actual underlying behavior has been verified.
+
+For each confirmed issue, require:
+
+1. Root cause identified.
+2. Correct implementation completed.
+3. Relevant tests added or updated.
+4. Tests executed successfully.
+5. Related workflows verified.
+6. Regression risks checked.
+7. Evidence recorded.
+
+**No superficial fixes. No fake success. No skipped issues. No incomplete payment integration. No frontend-only solutions.**
+
+---
+
+# PHASE 18 — FINAL REPORT
+
+After implementation, provide a detailed report containing:
+
+## 1. Executive Summary
+Describe the overall project condition after remediation.
+
+## 2. Original Audit Findings
+List every issue reported in the previous audit.
+
+## 3. Root Cause Analysis
+Explain the actual cause of each confirmed issue.
+
+## 4. Files Changed
+List every modified or newly created file and explain why it was necessary.
+
+## 5. Payment Gateway Results
+Report IPN validation, payment status, sandbox/live configuration, refund handling, and payment lifecycle verification separately.
+
+## 6. Authentication & Security Results
+Report JWT, role authorization, middleware, and security improvements.
+
+## 7. Backend API Results
+Report the affected endpoints and their verified behavior.
+
+## 8. TypeScript & Build Results
+Provide actual command results.
+
+## 9. Analytics & Chart Results
+Explain which calculations were corrected and how they were verified against database records.
+
+## 10. Admin Panel Results
+Report the tested modules and CRUD operations.
+
+## 11. Database Results
+Explain schema, index, transaction, and consistency changes.
+
+## 12. Testing Results
+Provide test names, actual pass/fail counts, and any failures.
+
+## 13. Remaining Blockers
+List anything that could not be verified because of unavailable credentials, external provider access, production environment limitations, or missing data.
+
+## 14. Production Readiness Assessment
+Choose one:
+
+- READY FOR PRODUCTION
+- CONDITIONALLY READY — EXTERNAL VERIFICATION REQUIRED
+- NOT READY FOR PRODUCTION
+
+Never claim READY FOR PRODUCTION if critical security, payment, database, or integration checks remain unverified.
+
+---
+
+# FINAL NON-NEGOTIABLE INSTRUCTIONS
+
+I want a complete, reliable, production-level remediation of the actual issues found in this project.
+
+Do not just explain the problems.
+
+Do not only provide recommendations.
+
+Do not stop after analyzing the repository.
+
+Do not fix only the first few errors.
+
+Do not ignore payment, authentication, backend APIs, TypeScript, analytics, charts, admin operations, refunds, or database consistency.
+
+You must investigate, implement, test, verify, and report.
+
+**EVERY CONFIRMED ISSUE FROM THE PREVIOUS AUDIT IS MANDATORY.**
+
+If one issue depends on external credentials or a third-party provider, implement everything possible safely, then clearly identify the remaining external verification requirement. Never fabricate a successful integration test.
+
+Preserve all unrelated working code, business logic, components, URLs, and UI design.
+
+**ULTIMATE OBJECTIVE: Transform the existing application into a genuinely reliable, secure, fully integrated production-grade e-commerce system through precise, evidence-based fixes — without unnecessarily rebuilding or redesigning the existing project.**

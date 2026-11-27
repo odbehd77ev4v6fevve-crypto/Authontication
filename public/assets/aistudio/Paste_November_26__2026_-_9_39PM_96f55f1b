@@ -1,0 +1,1067 @@
+# MASTER ENGINEERING PROMPT: PREMIUM DYNAMIC MEGA MENU & NAVIGATION MANAGEMENT SYSTEM
+
+## ROLE & ENGINEERING STANDARD
+
+Act as a Principal Software Architect, Senior Full-Stack Engineer, UI/UX Architect, Database Engineer, API Architect, and E-commerce Platform Specialist.
+
+You are working on my existing single-vendor e-commerce project.
+
+Your task is to analyze, design, implement, integrate, and thoroughly test a complete, production-ready Dynamic Mega Menu and Navigation Management System.
+
+This is NOT a simple dropdown UI implementation.
+
+This is a complete database-driven, API-powered, admin-controlled navigation management system.
+
+**CRITICAL REQUIREMENT:**
+
+I am providing a reference image. You MUST carefully inspect and understand the entire image before implementation.
+
+The frontend Mega Menu must closely reproduce the provided reference image's visual structure, layout, spacing, colors, proportions, typography, icons, category organization, promotional slider, and overall premium appearance.
+
+You may improve the design with additional professional features, but do not replace the reference design with an unrelated design.
+
+Most importantly, every feature must work through the real frontend, backend, APIs, database, and admin panel.
+
+Do not create static mockups, fake buttons, hardcoded menu items, or frontend-only functionality.
+
+---
+
+# PHASE 1: COMPLETE PROJECT ANALYSIS BEFORE CODING
+
+Before modifying anything:
+
+1. Scan the entire existing project.
+2. Understand the existing frontend architecture.
+3. Understand the backend architecture.
+4. Inspect the database models and relationships.
+5. Inspect existing API routes, controllers, services, and middleware.
+6. Inspect the existing authentication and authorization system.
+7. Inspect the existing admin panel and navigation management modules.
+8. Inspect the existing category, subcategory, product, brand, banner, and advertisement modules.
+9. Inspect the existing homepage section ordering system.
+10. Inspect the existing header, navbar, responsive navigation, and mobile menu.
+11. Identify existing reusable components and services.
+12. Check existing image upload and media management infrastructure.
+13. Inspect existing caching, query management, and API error handling.
+
+Identify whether a navigation or dropdown system already exists.
+
+If an existing system exists, understand its complete functionality before extending or replacing anything.
+
+Do not create duplicate APIs, duplicate database models, duplicate navigation systems, or conflicting components.
+
+Preserve existing business logic and project architecture.
+
+Do not unnecessarily change unrelated pages, routes, components, styling, authentication, or database structures.
+
+After completing the analysis, prepare a clear implementation plan and execute it.
+
+Do not stop after presenting the plan.
+
+---
+
+# PHASE 2: PREMIUM FRONTEND MEGA MENU DESIGN
+
+## 2.1 Reference Design Requirements
+
+Reproduce the provided reference image as closely as possible.
+
+The desktop navigation should contain:
+
+- Premium top announcement bar.
+- Brand logo.
+- Search bar.
+- Account icon.
+- Wishlist icon with dynamic count.
+- Shopping cart icon with dynamic count.
+- All Categories navigation button.
+- Home.
+- Shop.
+- Deals.
+- About Us.
+- Blog.
+- Contact Us.
+
+The All Categories button should open a premium, large Mega Menu overlay.
+
+The Mega Menu must have a sophisticated white background, subtle shadows, rounded corners, elegant borders, proper spacing, premium green accent colors, and smooth animations.
+
+## 2.2 Mega Menu Layout
+
+Follow the reference image's three-part layout.
+
+### LEFT SECTION: CATEGORY SIDEBAR
+
+Display categories vertically.
+
+Each category should support:
+
+- Category icon.
+- Category name.
+- Optional category image.
+- Expandable indicator.
+- Active and hover states.
+- Optional promotional badge.
+- Optional custom label.
+- Link to its category page.
+
+Example:
+
+- All Categories
+- Mobile & Tablets
+- Computers & Laptops
+- Electronics
+- Fashion & Clothing
+- Home & Living
+- Beauty & Care
+- Sports & Outdoor
+- Books & Stationery
+- Toys & Games
+- Accessories
+- More Categories
+
+These are examples only. Actual categories must come from the database.
+
+When the user hovers over or clicks a category, its corresponding subcategories should appear in the middle content area.
+
+Support both hover and click interactions.
+
+### MIDDLE SECTION: CATEGORY DETAILS
+
+Display selected category details in an organized multi-column layout.
+
+Each category group should support:
+
+- Category icon.
+- Category name.
+- View All link.
+- Subcategory list.
+- Optional subcategory icons.
+- Optional product images.
+- Custom ordering.
+- Active and hover states.
+
+Example:
+
+Mobile & Tablets:
+- Smartphones
+- Feature Phones
+- Tablets
+- Mobile Accessories
+- Power Banks
+
+Computers & Laptops:
+- Laptops
+- Desktops
+- Monitors
+- Accessories
+- Laptop Bags
+
+Electronics:
+- Headphones
+- Smart Watches
+- Bluetooth Speakers
+- Cameras
+- Accessories
+
+Fashion & Clothing:
+- Men's Fashion
+- Women's Fashion
+- Kids Fashion
+- Shoes
+- Bags & Wallets
+
+The number of columns must be configurable.
+
+Support different layouts:
+
+- 1 Column
+- 2 Columns
+- 3 Columns
+- 4 Columns
+- Automatic Grid
+- Custom Grid
+
+Do not hardcode these categories or their relationships.
+
+All category information must come from the actual database.
+
+### RIGHT SECTION: PROMOTIONAL SLIDER
+
+This is an important part of the reference design.
+
+Inside the Mega Menu, create a premium promotional banner slider.
+
+Each slide should support:
+
+- Desktop background image.
+- Optional mobile background image.
+- Main heading.
+- Secondary heading.
+- Promotional badge.
+- Discount text.
+- Description.
+- CTA button text.
+- CTA destination URL.
+- Text color.
+- Highlight color.
+- Text alignment.
+- Background overlay.
+- Image positioning.
+- Custom border radius.
+- Optional product images.
+- Active/inactive status.
+
+Navigation controls:
+
+- Previous arrow.
+- Next arrow.
+- Pagination dots.
+- Auto-play.
+- Pause on hover.
+- Configurable slide duration.
+- Loop.
+- Smooth transitions.
+
+The promotional slider must work with real database records.
+
+If no promotional slide is active, gracefully hide the promotional slider or use an admin-configured fallback.
+
+Never display broken image placeholders or fake promotional content.
+
+---
+
+# PHASE 3: ADVANCED DYNAMIC MEGA MENU FEATURES
+
+This must be a reusable navigation system, not a single hardcoded dropdown.
+
+Support multiple navigation menu types:
+
+1. Classic Dropdown.
+2. Mega Menu.
+3. Category Mega Menu.
+4. Multi-Column Mega Menu.
+5. Image-Based Mega Menu.
+6. Promotional Mega Menu.
+7. Featured Product Mega Menu.
+8. Custom Content Mega Menu.
+9. Multi-Level Nested Dropdown.
+10. Custom HTML-like structured content using safe predefined blocks.
+
+Each menu must be independently configurable.
+
+## 3.1 Multiple Menu Placements
+
+Allow administrators to create different navigation menus for different website locations.
+
+Examples:
+
+- Main Header Navigation.
+- All Categories Menu.
+- Shop Navigation.
+- Deals Navigation.
+- Footer Navigation.
+- Mobile Navigation.
+- Homepage Navigation.
+- Custom Page Navigation.
+- Other supported page-specific placements.
+
+Allow the administrator to assign a menu to a specific placement.
+
+Prevent accidental duplicate active menus in placements configured to allow only one menu.
+
+Support page-specific visibility rules where applicable.
+
+## 3.2 Flexible Menu Item Types
+
+Each menu item should support different content types:
+
+- Category.
+- Subcategory.
+- Product.
+- Brand.
+- Product Collection.
+- Featured Products.
+- Best Sellers.
+- Latest Products.
+- Flash Sale.
+- Promotional Campaign.
+- Static Page.
+- Blog.
+- Blog Category.
+- Internal Website Route.
+- External URL.
+- Custom Content.
+
+Each item should have:
+
+- Label.
+- Icon.
+- Optional image.
+- Link type.
+- Link destination.
+- Parent item.
+- Display order.
+- Visibility status.
+- Open in same tab/new tab.
+- Optional badge.
+- Optional description.
+
+Support unlimited practical nested levels, with a configurable maximum depth to prevent unusable navigation structures.
+
+Validate parent-child relationships and prevent circular references.
+
+## 3.3 Advanced Menu Appearance Settings
+
+Allow administrators to configure:
+
+- Menu width.
+- Menu maximum height.
+- Number of columns.
+- Sidebar width.
+- Middle content width.
+- Promotional slider width.
+- Padding.
+- Gaps.
+- Border radius.
+- Border color.
+- Shadow.
+- Background color.
+- Typography.
+- Font weight.
+- Icon size.
+- Text size.
+- Hover color.
+- Active color.
+- Divider style.
+- Menu animation.
+- Animation duration.
+- Menu opening direction.
+
+Provide premium predefined templates:
+
+- Modern Green.
+- Minimal White.
+- Premium Dark.
+- Luxury.
+- Modern Ecommerce.
+- Custom Design.
+
+Preserve the reference image's green-and-white design as the default template.
+
+---
+
+# PHASE 4: PROFESSIONAL ADMIN PANEL – NAVIGATION MENU CREATOR
+
+Create a dedicated admin module named:
+
+**Navigation Menu Manager**
+
+It must be a complete, functional administration interface.
+
+Do not put all functionality into one overloaded form.
+
+Create separate organized pages, tabs, modals, and management sections.
+
+## 4.1 Navigation Dashboard
+
+Display:
+
+- Total Menus.
+- Active Menus.
+- Draft Menus.
+- Total Menu Items.
+- Mega Menus.
+- Active Promotional Slides.
+- Menus by Placement.
+- Recently Updated Menus.
+
+All statistics must be calculated from actual database records.
+
+## 4.2 All Navigation Menus
+
+Create a management table with:
+
+- Menu Name.
+- Menu Type.
+- Placement.
+- Number of Items.
+- Status.
+- Last Updated.
+- Created By.
+- Actions.
+
+Actions:
+
+- View.
+- Edit.
+- Duplicate.
+- Preview.
+- Publish.
+- Unpublish.
+- Delete.
+
+Include:
+
+- Search.
+- Filters.
+- Sorting.
+- Pagination.
+- Bulk Actions.
+- Confirmation dialogs.
+
+## 4.3 Create / Edit Navigation Menu
+
+Create a premium multi-section menu builder.
+
+Required fields:
+
+- Menu Name.
+- Internal Identifier / Slug.
+- Menu Type.
+- Menu Placement.
+- Description.
+- Visibility.
+- Status.
+- Layout Template.
+- Desktop Configuration.
+- Tablet Configuration.
+- Mobile Configuration.
+
+Allow multiple menu items to be added dynamically.
+
+The administrator should be able to:
+
+- Add Menu Item.
+- Edit Menu Item.
+- Delete Menu Item.
+- Duplicate Menu Item.
+- Add Child Item.
+- Change Parent.
+- Drag and Drop Reorder.
+- Expand and Collapse Groups.
+- Preview Individual Items.
+
+Implement reliable drag-and-drop ordering with persistent database updates.
+
+Do not rely on frontend-only ordering.
+
+## 4.4 Visual Mega Menu Builder
+
+Create a visual builder that allows administrators to organize:
+
+- Left Category Sidebar.
+- Middle Category Grid.
+- Right Promotional Slider.
+
+Allow independent configuration of all three sections.
+
+Provide:
+
+- Enable/Disable Sidebar.
+- Enable/Disable Category Grid.
+- Enable/Disable Promotional Slider.
+- Configure Column Count.
+- Configure Sidebar Width.
+- Configure Grid Width.
+- Configure Slider Width.
+- Change Section Order.
+- Change Category Order.
+- Change Subcategory Order.
+- Configure Item Visibility.
+
+Provide a live preview that updates as the administrator changes settings.
+
+The preview must reflect the actual frontend component and its rendering rules, not an unrelated static mockup.
+
+## 4.5 Icon Management
+
+Provide a professional icon picker.
+
+Support:
+
+- Existing project icon library.
+- Available icon packages.
+- Category icons.
+- Custom uploaded SVG icons, with sanitization.
+- Optional image-based icons.
+
+Allow icon selection, replacement, removal, and preview.
+
+Do not store executable SVG or unsafe HTML.
+
+---
+
+# PHASE 5: PROMOTIONAL SLIDER MANAGEMENT INSIDE MEGA MENU
+
+Create a dedicated Mega Menu Promotional Slides manager.
+
+Administrators must be able to:
+
+- Create multiple slides.
+- Edit slides.
+- Delete slides.
+- Duplicate slides.
+- Reorder slides.
+- Enable/Disable slides.
+- Set start and end dates.
+- Schedule publication.
+- Assign slides to specific menus.
+- Set slide priority.
+
+Each slide should support:
+
+- Desktop Image.
+- Mobile Image.
+- Main Heading.
+- Highlighted Heading.
+- Description.
+- Promotional Badge.
+- Discount Information.
+- CTA Label.
+- CTA URL.
+- Background Overlay.
+- Text Color.
+- Button Color.
+- Image Position.
+- Custom Styling.
+- Display Order.
+
+Provide a real-time preview.
+
+Use the existing media upload system or Cloudinary integration if available.
+
+Never expose private cloud credentials in frontend code.
+
+Validate image formats, file size, upload errors, and image ownership.
+
+---
+
+# PHASE 6: SCROLLING, INTERACTIONS AND PREMIUM UX
+
+The public Mega Menu must support:
+
+### Desktop
+
+- Smooth opening and closing.
+- Hover-based category switching.
+- Click-based category selection.
+- Smooth content transitions.
+- Proper menu positioning.
+- Click outside to close.
+- Escape key to close.
+- Correct z-index.
+- No unwanted horizontal overflow.
+- No layout shifting.
+
+### Scroll Behavior
+
+When there are many categories or menu items:
+
+- Set configurable maximum menu height.
+- Use an elegant internal scrollbar.
+- Keep the scrollbar visually subtle.
+- Provide smooth vertical scrolling.
+- Avoid expanding the dropdown beyond the viewport.
+- Ensure promotional content remains usable.
+- Support independent scrolling where appropriate.
+
+Do not use ugly default oversized scrollbars.
+
+### Mobile and Tablet
+
+Create a separate responsive navigation experience.
+
+Support:
+
+- Hamburger navigation.
+- Expandable categories.
+- Nested submenus.
+- Touch-friendly controls.
+- Responsive promotional slides.
+- Proper back navigation.
+- Smooth accordion animations.
+- No horizontal scrolling.
+- No clipped content.
+
+Do not simply shrink the desktop Mega Menu and expect it to work on mobile.
+
+### Accessibility
+
+Implement:
+
+- Keyboard navigation.
+- Focus management.
+- ARIA attributes.
+- Accessible labels.
+- Visible focus indicators.
+- Reduced-motion support.
+- Sufficient color contrast.
+
+---
+
+# PHASE 7: BACKEND ARCHITECTURE
+
+This must be a real full-stack implementation.
+
+Follow the existing backend architecture and coding conventions.
+
+If the project uses Express and TypeScript, follow that architecture.
+
+Use a clean separation of responsibilities:
+
+Routes → Authentication / Authorization Middleware → Validation → Controllers → Services → Database Models.
+
+Create or extend appropriate modules for:
+
+1. Navigation Menu Management.
+2. Menu Items.
+3. Mega Menu Configuration.
+4. Menu Placements.
+5. Promotional Slides.
+6. Menu Preview.
+7. Public Navigation Delivery.
+
+Suggested API structure (adapt to existing conventions):
+
+Admin APIs:
+
+GET /api/navigation/admin/menus
+
+GET /api/navigation/admin/menus/:id
+
+POST /api/navigation/admin/menus
+
+PUT /api/navigation/admin/menus/:id
+
+DELETE /api/navigation/admin/menus/:id
+
+POST /api/navigation/admin/menus/:id/duplicate
+
+POST /api/navigation/admin/menus/:id/publish
+
+POST /api/navigation/admin/menus/:id/unpublish
+
+PUT /api/navigation/admin/menus/:id/reorder
+
+POST /api/navigation/admin/menus/:id/preview
+
+GET /api/navigation/admin/placements
+
+GET /api/navigation/admin/slides
+
+POST /api/navigation/admin/slides
+
+PUT /api/navigation/admin/slides/:id
+
+DELETE /api/navigation/admin/slides/:id
+
+PUT /api/navigation/admin/slides/reorder
+
+Public APIs:
+
+GET /api/navigation/public
+
+GET /api/navigation/public/:placement
+
+GET /api/navigation/public/menus/:slug
+
+These are suggested API contracts. Adapt them to the existing route structure and avoid creating conflicting endpoints.
+
+Every endpoint must have:
+
+- Proper authentication where required.
+- Admin authorization.
+- Input validation.
+- Consistent error responses.
+- Safe database operations.
+- Appropriate HTTP status codes.
+- Pagination where necessary.
+- Logging.
+- Proper exception handling.
+
+Never trust frontend-supplied admin permissions.
+
+---
+
+# PHASE 8: DATABASE DESIGN
+
+Design proper database models according to the existing database technology.
+
+If the project uses MongoDB and Mongoose, create appropriately normalized or referenced schemas.
+
+Suggested entities:
+
+1. NavigationMenu.
+2. NavigationMenuItem.
+3. MegaMenuConfiguration.
+4. NavigationPlacement.
+5. MegaMenuSlide.
+
+Menu records should support:
+
+- Name.
+- Slug.
+- Type.
+- Placement.
+- Description.
+- Configuration.
+- Status.
+- Visibility.
+- Display Order.
+- Publication Schedule.
+- Created By.
+- Updated By.
+- Timestamps.
+
+Menu item records should support:
+
+- Menu Reference.
+- Parent Reference.
+- Label.
+- Item Type.
+- Link Configuration.
+- Icon Configuration.
+- Image.
+- Badge.
+- Description.
+- Display Order.
+- Visibility.
+- Metadata.
+
+Promotional slide records should support:
+
+- Menu Reference.
+- Desktop Image.
+- Mobile Image.
+- Heading.
+- Description.
+- CTA.
+- Link.
+- Overlay.
+- Styling.
+- Display Order.
+- Active Status.
+- Schedule.
+
+Use appropriate indexes.
+
+Enforce unique slugs and identifiers.
+
+Validate relationships and prevent orphaned records.
+
+Use transactions where multiple related records must be updated atomically and the database supports them.
+
+Avoid unnecessary database queries and N+1 query problems.
+
+Do not store temporary frontend state as the source of truth.
+
+---
+
+# PHASE 9: REAL CATEGORY AND PRODUCT INTEGRATION
+
+The Mega Menu must integrate with existing e-commerce modules.
+
+Category and subcategory information must come from the real category database.
+
+Product links must resolve to actual product pages.
+
+Brand links must resolve to actual brand pages.
+
+Featured product groups must use real products.
+
+Best Seller groups must use actual sales/order data where the existing business logic supports it.
+
+Latest Products must use actual published products.
+
+Flash Sale groups must respect real promotional schedules and product availability.
+
+If a referenced category, product, or brand becomes unavailable or inactive, handle it gracefully.
+
+Do not display deleted products or unpublished categories.
+
+Avoid hardcoded category arrays.
+
+Do not create duplicate category records just to populate the menu.
+
+Support both:
+
+1. Automatic Category Integration.
+2. Manual Menu Item Configuration.
+
+The administrator should be able to choose which categories and subcategories appear in the Mega Menu.
+
+---
+
+# PHASE 10: SECURITY AND PERMISSIONS
+
+Implement production-grade security.
+
+- Only authorized administrators can manage menus.
+- Respect existing admin roles and permissions.
+- Validate every request on the backend.
+- Sanitize user-generated content.
+- Prevent XSS.
+- Prevent NoSQL injection.
+- Validate internal and external URLs.
+- Restrict unsafe external protocols.
+- Prevent malicious redirects.
+- Secure file uploads.
+- Rate-limit sensitive management endpoints where appropriate.
+- Maintain audit logs for important changes.
+
+Never expose secret environment variables.
+
+Never trust client-side authorization.
+
+If the existing system supports granular admin permissions, integrate Navigation Menu permissions into it.
+
+---
+
+# PHASE 11: CACHING AND PERFORMANCE
+
+Implement efficient public navigation delivery.
+
+Use the existing caching infrastructure if available.
+
+Requirements:
+
+- Cache published navigation data.
+- Cache by menu placement.
+- Invalidate relevant caches after create/update/delete/publish/reorder operations.
+- Never serve stale unpublished or deleted content.
+- Handle cache failures gracefully.
+- Optimize database queries.
+- Use lazy loading for promotional images when appropriate.
+- Use optimized responsive image sizes.
+- Avoid unnecessary React re-renders.
+- Prevent repeated API requests.
+- Prevent layout shifts.
+- Ensure fast initial navigation rendering.
+
+The frontend should load only the navigation data necessary for the active placement.
+
+---
+
+# PHASE 12: LIVE PREVIEW AND DRAFT SYSTEM
+
+This is an essential requirement.
+
+While creating or editing a menu, the administrator must see a live preview.
+
+Preview requirements:
+
+- Desktop Preview.
+- Tablet Preview.
+- Mobile Preview.
+- Category Sidebar Preview.
+- Multi-Column Preview.
+- Promotional Slider Preview.
+- Hover State Preview.
+- Scroll Behavior Preview.
+
+Draft changes must not affect the public website before publication.
+
+Implement a proper distinction between:
+
+- Draft.
+- Published.
+- Scheduled.
+- Disabled.
+
+Preview unpublished content only through an authorized admin preview mechanism.
+
+Do not expose private draft content through public APIs.
+
+---
+
+# PHASE 13: TESTING AND FINAL VERIFICATION
+
+After implementation, test the entire system.
+
+Do not consider the task complete simply because the interface looks correct.
+
+## Backend Tests
+
+Test:
+
+- Create Menu.
+- Read Menu.
+- Update Menu.
+- Delete Menu.
+- Duplicate Menu.
+- Publish Menu.
+- Unpublish Menu.
+- Create Menu Item.
+- Update Menu Item.
+- Delete Menu Item.
+- Reorder Menu Items.
+- Create Promotional Slide.
+- Update Promotional Slide.
+- Delete Promotional Slide.
+- Schedule Promotional Slide.
+- Public Menu Retrieval.
+- Invalid Request Handling.
+- Authentication.
+- Authorization.
+- Database Validation.
+- Cache Invalidation.
+
+## Frontend Tests
+
+Test:
+
+- All Categories Dropdown.
+- Category Hover.
+- Category Click.
+- Subcategory Navigation.
+- Multi-Column Layout.
+- Promotional Slider.
+- Previous / Next Buttons.
+- Slider Indicators.
+- CTA Navigation.
+- Internal Links.
+- External Links.
+- Scrollbar.
+- Click Outside.
+- Escape Key.
+- Mobile Navigation.
+- Tablet Navigation.
+- Loading States.
+- Error States.
+- Empty States.
+
+## Admin Panel Tests
+
+Verify:
+
+- Create.
+- Read.
+- Update.
+- Delete.
+- Duplicate.
+- Reorder.
+- Publish.
+- Unpublish.
+- Live Preview.
+- Image Upload.
+- Image Replacement.
+- Menu Placement.
+- Permissions.
+- Search.
+- Filtering.
+- Pagination.
+
+## Integration Tests
+
+Verify that:
+
+1. A menu created from the admin panel is saved in the actual database.
+2. The public frontend retrieves that menu through the real API.
+3. Updating a menu updates the public frontend correctly.
+4. Deleting a menu removes it from public navigation.
+5. Reordering persists after refreshing the page.
+6. Category changes are reflected correctly.
+7. Promotional slides load from actual database records.
+8. Scheduled slides follow their publication schedule.
+9. Cache invalidation works correctly.
+10. Unpublished content is never exposed publicly.
+
+Run the existing project tests.
+
+Run lint and TypeScript checks.
+
+Run the production build.
+
+Fix genuine errors introduced or discovered during the work.
+
+Do not hide failing tests or disable existing test coverage to make the project appear successful.
+
+---
+
+# PHASE 14: STRICT IMPLEMENTATION RULES
+
+These requirements are mandatory.
+
+1. Analyze the entire existing project before making changes.
+2. Follow the provided reference image closely.
+3. Build the complete admin-side navigation creator.
+4. Build the complete public-facing Mega Menu.
+5. Connect frontend, backend, API, and database.
+6. Use real database data.
+7. Implement actual CRUD operations.
+8. Implement actual drag-and-drop ordering.
+9. Implement actual promotional slider management.
+10. Implement actual responsive navigation.
+11. Implement proper authentication and authorization.
+12. Implement live preview and draft publication.
+13. Do not create fake buttons.
+14. Do not use static mock data as production content.
+15. Do not hardcode categories or promotional slides.
+16. Do not replace existing business logic unnecessarily.
+17. Do not rewrite unrelated modules.
+18. Do not introduce duplicate API routes or database models.
+19. Do not break existing homepage, product pages, cart, wishlist, checkout, or other navigation.
+20. Preserve existing integrations and design consistency.
+21. Do not leave TODOs or incomplete placeholder implementations for requested features.
+22. Do not claim a feature works without verifying it.
+
+If an existing module already provides a required capability, integrate and reuse it instead of duplicating it.
+
+If a required feature is missing, implement it properly.
+
+If a requirement conflicts with the existing architecture, identify the conflict and implement the safest compatible solution.
+
+---
+
+# FINAL EXPECTED RESULT
+
+I expect a complete, premium, production-ready Dynamic Mega Menu Management System.
+
+The final implementation must include:
+
+A. Premium reference-matched frontend Mega Menu.
+
+B. Fully dynamic category and subcategory integration.
+
+C. Multi-column category navigation.
+
+D. Integrated promotional slider.
+
+E. Multiple navigation menu types.
+
+F. Multiple menu placements.
+
+G. Advanced visual menu builder in the admin panel.
+
+H. Drag-and-drop menu organization.
+
+I. Live desktop, tablet, and mobile previews.
+
+J. Full database-backed CRUD.
+
+K. Secure backend APIs.
+
+L. Proper caching and invalidation.
+
+M. Responsive mobile navigation.
+
+N. Premium hover effects and smooth animations.
+
+O. Complete integration with the existing e-commerce project.
+
+P. Final production-level testing.
+
+## EXECUTION INSTRUCTION
+
+Start by thoroughly inspecting the provided reference image and the complete existing repository.
+
+Understand the existing project before writing or modifying code.
+
+Then implement the entire system step by step.
+
+Do not stop at analysis, planning, UI design, or frontend implementation.
+
+Complete the actual full-stack implementation, connect all modules, test the real workflows, and verify that all requested features work correctly.
+
+**The final result must be a real database-driven, admin-controlled, production-quality Mega Menu system — NOT a static visual demonstration.**

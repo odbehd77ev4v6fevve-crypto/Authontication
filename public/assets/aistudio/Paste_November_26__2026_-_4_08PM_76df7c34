@@ -1,0 +1,1389 @@
+# MASTER PROMPT: PREMIUM DYNAMIC PRODUCT DETAILS PAGE — FULL-STACK PRODUCTION IMPLEMENTATION
+
+## ROLE & RESPONSIBILITY
+
+Act as a Principal Full-Stack Software Engineer, Senior React Architect, TypeScript Specialist, Node.js Backend Architect, MongoDB Database Architect, UI/UX Designer, E-commerce Systems Engineer, Cybersecurity Engineer, and QA Automation Engineer.
+
+You are working on my existing e-commerce project.
+
+Your responsibility is to investigate the entire existing project and implement a complete, premium, production-ready, fully dynamic Product Details Page based on the uploaded reference screenshot.
+
+This is NOT a frontend-only design task.
+
+The complete implementation must include:
+
+- Premium frontend.
+- Backend APIs.
+- Database integration.
+- Product management.
+- Admin panel integration.
+- Product image management.
+- Product variants.
+- Inventory management.
+- Shopping cart integration.
+- Wishlist integration.
+- Customer reviews.
+- Product questions and answers.
+- Related products.
+- Product specifications.
+- Dynamic content management.
+- Authentication and authorization.
+- Validation and security.
+- Production testing.
+
+**The uploaded image is the mandatory visual reference. Reproduce its overall layout, visual hierarchy, proportions, spacing, typography, colors, components, and interactions as closely as reasonably possible.**
+
+Do not create a generic product details page.
+
+I want a premium Product Details Page visually matching the uploaded ShopVista Sony Headphones screenshot.
+
+However, every displayed value, image, product attribute, review, specification, variant, and promotional element must be dynamically connected to the existing application and database.
+
+---
+
+# PART 1 — INVESTIGATE THE EXISTING PROJECT FIRST
+
+Before writing or modifying code, inspect the complete existing repository.
+
+Investigate:
+
+1. package.json.
+2. Frontend framework and architecture.
+3. React components.
+4. TypeScript configuration.
+5. Tailwind CSS configuration.
+6. Existing design system.
+7. Global typography and fonts.
+8. Routing architecture.
+9. Product listing pages.
+10. Product details page.
+11. Product models and schemas.
+12. Product APIs.
+13. Product controllers.
+14. Product services.
+15. Product image upload functionality.
+16. Cloudinary or existing media storage integration.
+17. Product variant implementation.
+18. Inventory management.
+19. Cart functionality.
+20. Wishlist functionality.
+21. Customer authentication.
+22. Review system.
+23. Question and answer system.
+24. Related product functionality.
+25. Admin product management.
+26. Admin review management.
+27. Order management.
+28. MongoDB integration.
+29. Middleware and authorization.
+30. Existing tests and deployment configuration.
+
+Identify which components and services already exist.
+
+Reuse and extend existing functionality wherever possible.
+
+Do not introduce duplicate systems.
+
+Do not rebuild unrelated modules.
+
+Do not replace working business logic.
+
+Prepare a dependency-aware implementation plan before modifying shared components.
+
+After investigation, proceed with actual implementation. Do not stop at providing a report.
+
+---
+
+# PART 2 — EXACT VISUAL DESIGN REFERENCE
+
+Use the uploaded screenshot as the primary design reference.
+
+The Product Details Page should follow the same overall structure.
+
+## 2.1 Global Website Header
+
+Preserve the existing website header.
+
+The reference includes:
+
+- Top announcement bar.
+- Free Shipping message.
+- Customer trust message.
+- Support information.
+- Language selector, if supported.
+- Currency selector, if supported.
+- Brand logo.
+- Main navigation.
+- Product search.
+- Account icon.
+- Wishlist icon with count.
+- Shopping cart icon with count.
+
+Do not unnecessarily redesign the existing website header.
+
+Keep existing navigation routes and functionality.
+
+## 2.2 Breadcrumb Navigation
+
+Display a dynamic breadcrumb:
+
+Home → Category → Subcategory → Product Name.
+
+Breadcrumbs must come from actual product/category relationships.
+
+Each breadcrumb must navigate to its correct destination.
+
+Do not hardcode breadcrumb names.
+
+---
+
+# PART 3 — PREMIUM PRODUCT IMAGE GALLERY
+
+This is one of the most important sections.
+
+Reproduce the reference image gallery.
+
+## 3.1 Main Gallery Layout
+
+Desktop layout:
+
+- Left side: vertical thumbnail gallery.
+- Center: large primary product image.
+- Main image container with premium rounded corners.
+- Discount badge when applicable.
+- Fullscreen/expand icon.
+- Hover-to-zoom indicator.
+- Bottom thumbnail carousel.
+
+The gallery must be responsive.
+
+On mobile, use a suitable horizontal thumbnail layout.
+
+## 3.2 Dynamic Product Images
+
+When creating or editing a product from the Admin Panel, allow administrators to manage:
+
+- Main product image.
+- Multiple gallery images.
+- Image order.
+- Thumbnail images.
+- Image alt text.
+- Variant-specific images.
+- Optional product video thumbnail and video URL.
+
+Use the existing image upload and storage infrastructure.
+
+If Cloudinary is already integrated, reuse it.
+
+Do not introduce unnecessary external image URL fields when the existing project uses file uploads.
+
+The first valid product image should be selected as the default image if no separate primary image is configured.
+
+Validate uploaded image types and sizes.
+
+## 3.3 Image Interaction
+
+Implement:
+
+1. Thumbnail click changes the main image.
+2. Main image hover activates a smooth zoom effect.
+3. Mouse movement controls the zoom focus where appropriate.
+4. Touch devices receive an appropriate touch interaction.
+5. Fullscreen button opens a premium image modal.
+6. Modal supports next and previous images.
+7. Keyboard navigation.
+8. Escape closes the modal.
+9. Background overlay.
+10. Smooth transitions.
+
+The image modal must display actual product gallery images.
+
+Do not use static placeholder images.
+
+## 3.4 Bottom Thumbnail Carousel
+
+Implement a horizontal thumbnail carousel.
+
+Include:
+
+- Previous arrow.
+- Next arrow.
+- Active thumbnail indicator.
+- Smooth scrolling.
+- Responsive behavior.
+
+Every thumbnail must correspond to an actual gallery image.
+
+---
+
+# PART 4 — DYNAMIC PRODUCT INFORMATION
+
+The right side of the main product section must reproduce the reference layout.
+
+Display:
+
+### Stock Status
+
+Examples:
+
+- In Stock.
+- Out of Stock.
+- Limited Stock.
+- Pre-order, if supported.
+
+Stock status must be calculated from actual inventory.
+
+Never hardcode stock availability.
+
+### Product Title
+
+Display the actual product name from MongoDB.
+
+### Rating and Reviews
+
+Display:
+
+- Average rating.
+- Total review count.
+- Optional video review count, if the system supports actual video reviews.
+
+All values must come from real review data.
+
+### Verified Customer Information
+
+Where supported, show verified customer indicators.
+
+Never create fake verified purchase badges.
+
+### Product Price
+
+Display:
+
+- Current selling price.
+- Original price.
+- Discount percentage.
+- Savings amount.
+- Currency formatting.
+
+Use the application's existing currency configuration.
+
+For my Bangladesh storefront, support BDT (৳) where configured.
+
+Do not hardcode the screenshot's Sony headphone price.
+
+All prices must come from the actual product and pricing configuration.
+
+### Product Description
+
+Display the product's short description.
+
+Support rich text only through safe, sanitized rendering.
+
+### Product Highlights
+
+Display configurable product features as a clean checklist.
+
+Examples:
+
+- Premium quality.
+- Advanced technology.
+- Long-lasting performance.
+- High-quality materials.
+
+These must be actual administrator-configured product highlights, not static universal text.
+
+---
+
+# PART 5 — DYNAMIC PRODUCT VARIANTS
+
+This feature is mandatory.
+
+Product variants must be manageable from the Admin Panel.
+
+Different products require different variant types.
+
+Examples:
+
+Electronics:
+- Color.
+- Storage.
+- RAM.
+- Model.
+- Connectivity.
+
+Clothing:
+- Size.
+- Color.
+- Material.
+- Fit.
+
+Shoes:
+- Size.
+- Color.
+- Material.
+
+Other products:
+- Category-specific attributes.
+
+Do not force every product into the same variant structure.
+
+## Variant Requirements
+
+Admin should be able to:
+
+- Create variant attributes.
+- Add variant options.
+- Configure individual variant SKUs.
+- Configure variant prices.
+- Configure variant stock.
+- Configure variant images.
+- Configure variant availability.
+- Configure variant-specific discounts where supported.
+
+Customer-facing behavior:
+
+- Display available variant selectors.
+- Allow variant selection.
+- Update price dynamically.
+- Update stock dynamically.
+- Update SKU where applicable.
+- Update main gallery image when the selected variant has an associated image.
+- Disable unavailable options.
+- Prevent purchasing unavailable combinations.
+
+Do not allow the customer to purchase an invalid variant.
+
+The backend must independently validate variant selection, pricing, and stock.
+
+Do not trust frontend-submitted variant prices.
+
+---
+
+# PART 6 — QUANTITY, WISHLIST, ADD TO CART & BUY NOW
+
+Reproduce the screenshot's purchase controls.
+
+## 6.1 Quantity Selector
+
+Include:
+
+- Minus button.
+- Quantity value.
+- Plus button.
+
+Validate:
+
+- Minimum quantity.
+- Maximum purchase quantity.
+- Available inventory.
+- Variant-specific stock.
+- Quantity limits configured by admin.
+
+Never allow negative quantities or quantities exceeding available stock.
+
+## 6.2 Wishlist
+
+Implement:
+
+- Add to Wishlist.
+- Remove from Wishlist.
+- Wishlist status synchronization.
+- Customer-specific persistence.
+- Login handling.
+- Wishlist icon state.
+
+Do not use local-only wishlist persistence when the existing project supports authenticated database-backed wishlists.
+
+## 6.3 Add to Cart
+
+The Add to Cart button must:
+
+- Validate selected variants.
+- Validate quantity.
+- Validate stock.
+- Call the actual backend cart API.
+- Persist cart information.
+- Update the global cart count.
+- Prevent invalid duplicate additions according to existing cart business rules.
+- Display a premium success notification.
+- Handle API errors.
+- Preserve the selected variant.
+
+Do not simulate successful cart additions.
+
+## 6.4 Buy Now
+
+Buy Now must:
+
+1. Validate the product.
+2. Validate selected variant.
+3. Validate quantity.
+4. Add or prepare the correct cart item.
+5. Navigate to the existing checkout flow.
+6. Preserve product and variant information.
+
+Do not bypass the existing checkout or order validation logic.
+
+---
+
+# PART 7 — RIGHT-SIDE TRUST & ADVERTISEMENT CARDS
+
+Reproduce the right-side vertical cards shown in the screenshot.
+
+### Trust Cards
+
+Support:
+
+- Free Shipping.
+- Easy Returns.
+- Secure Payment.
+- 24/7 Support.
+
+These must be configurable using the existing settings or content management system.
+
+Do not display unsupported promises.
+
+For example, only show a 30-day return promise if the actual return policy supports it.
+
+### Promotional Advertisement
+
+Add the promotional image/banner card below the trust cards.
+
+Admin should be able to configure:
+
+- Advertisement image.
+- Heading.
+- Subtitle.
+- CTA text.
+- Destination URL.
+- Active status.
+- Display order.
+
+Use the existing advertisement/banner management architecture.
+
+Do not hardcode the screenshot's headphone advertisement.
+
+On mobile, reposition these cards appropriately without breaking the product purchase flow.
+
+---
+
+# PART 8 — PRODUCT DETAILS TABS
+
+Reproduce the tab structure shown in the reference image.
+
+Tabs:
+
+1. Description.
+2. Specifications.
+3. Reviews.
+4. Questions & Answers.
+5. Shipping & Returns.
+
+All tab content must be dynamic.
+
+## 8.1 Description
+
+Display the complete product description.
+
+Support properly sanitized rich text.
+
+Allow product-specific content.
+
+## 8.2 Specifications
+
+Display a dynamic specification table.
+
+Admin should be able to create category-specific specifications.
+
+Examples:
+
+Headphones:
+- Brand.
+- Model.
+- Driver Size.
+- Connectivity.
+- Battery Life.
+- Noise Cancellation.
+- Weight.
+
+Smartphones:
+- Display.
+- Processor.
+- RAM.
+- Storage.
+- Camera.
+- Battery.
+- Operating System.
+
+Clothing:
+- Material.
+- Size.
+- Fit.
+- Color.
+- Care Instructions.
+
+Specifications must be stored in the database.
+
+Do not create a fixed specification list for every category.
+
+## 8.3 Reviews Tab
+
+Display actual customer reviews.
+
+Include:
+
+- Average rating.
+- Total reviews.
+- Rating distribution.
+- Review sorting.
+- Review pagination.
+- Verified Purchase status.
+- Customer display name.
+- Review date.
+- Review title.
+- Review description.
+- Review images, if supported.
+
+Clicking the Reviews tab or rating summary should navigate to or reveal the review section.
+
+## 8.4 Questions & Answers
+
+Implement a proper product Q&A system.
+
+Customers should be able to:
+
+- Ask product-related questions.
+- View published answers.
+- Submit questions when authenticated.
+- View question status where appropriate.
+
+Admin should be able to:
+
+- Review questions.
+- Approve or reject questions.
+- Answer questions.
+- Edit answers.
+- Publish or unpublish answers.
+
+Only approved and published questions/answers should appear publicly.
+
+Do not create fake question counts.
+
+## 8.5 Shipping & Returns
+
+Display actual store policy and product-specific shipping information where supported.
+
+Include:
+
+- Shipping information.
+- Estimated delivery information.
+- Return policy.
+- Warranty information.
+- Applicable restrictions.
+
+Do not hardcode misleading delivery promises.
+
+---
+
+# PART 9 — PREMIUM CUSTOMER REVIEW SYSTEM
+
+This section must closely match the screenshot.
+
+## 9.1 Review Summary
+
+Display:
+
+- Customer Reviews heading.
+- Average rating.
+- Total review count.
+- Rating distribution.
+- Five-star percentage.
+- Four-star percentage.
+- Three-star percentage.
+- Two-star percentage.
+- One-star percentage.
+
+Calculate these values from actual published reviews.
+
+Use correct aggregation.
+
+## 9.2 Individual Review Cards
+
+Display premium review cards.
+
+Each card may contain:
+
+- Customer avatar.
+- Customer display name.
+- Verified Purchase badge.
+- Star rating.
+- Review title.
+- Review text.
+- Review date.
+- Helpful review action, if supported.
+
+Use responsive cards.
+
+Keep the same visual style as the screenshot.
+
+## 9.3 Write a Review Button
+
+Provide a clear, premium Write a Review action.
+
+When the customer clicks it, open a premium modal with a backdrop overlay.
+
+### Review Modal Design
+
+Include:
+
+- Modal heading.
+- Product name.
+- Product thumbnail.
+- Interactive five-star rating selector.
+- Review title input.
+- Review description textarea.
+- Optional review image upload, if supported.
+- Submit Review button.
+- Cancel button.
+- Form validation.
+- Loading state.
+- Success and error notifications.
+
+The rating selector must be interactive.
+
+Customers must be able to select 1–5 stars.
+
+Review title and description must be validated.
+
+Do not accept empty reviews.
+
+## 9.4 Review Backend
+
+Create or extend the existing review API architecture.
+
+Required operations:
+
+- Create review.
+- Read product reviews.
+- Update review, where permitted.
+- Delete review, where permitted.
+- Admin moderation.
+- Approve review.
+- Reject review.
+- Publish review.
+
+A customer must not be able to review another customer's identity or modify another user's review.
+
+Where the platform requires verified purchases, validate actual order history on the backend.
+
+Never trust a frontend-submitted verifiedPurchase flag.
+
+Prevent duplicate reviews according to the existing review policy.
+
+Update product rating aggregates correctly after moderation and review changes.
+
+Do not count pending or rejected reviews in public rating calculations.
+
+---
+
+# PART 10 — RELATED PRODUCTS
+
+Reproduce the Related Products section shown in the reference screenshot.
+
+Place it below the customer review section and above the footer, following the reference's visual hierarchy.
+
+Display premium product cards with:
+
+- Product image.
+- Product name.
+- Discount badge.
+- Rating.
+- Review count.
+- Current price.
+- Original price.
+- Wishlist action.
+- Quick Add to Cart button.
+
+### Dynamic Related Product Logic
+
+Related products must come from actual database records.
+
+Use an appropriate existing recommendation strategy based on:
+
+- Same category.
+- Same subcategory.
+- Same brand.
+- Related product tags.
+- Similar attributes.
+- Admin-selected related products.
+
+Exclude the currently viewed product.
+
+Exclude unpublished and unavailable products according to storefront visibility rules.
+
+Do not display arbitrary hardcoded products.
+
+### Related Product Carousel
+
+Include:
+
+- Responsive horizontal carousel.
+- Previous/next controls.
+- Smooth scrolling.
+- Product navigation.
+- Add to Cart integration.
+
+On mobile, ensure smooth touch scrolling.
+
+---
+
+# PART 11 — ADMIN PANEL: COMPLETE DYNAMIC PRODUCT MANAGEMENT
+
+This is a mandatory requirement.
+
+The Product Details Page must be driven by product information stored through the Admin Panel.
+
+When an administrator creates or edits a product, all relevant Product Details information should be configurable.
+
+Do not restrict product creation to only:
+
+- Name.
+- Price.
+- Single image.
+- Short description.
+
+Build upon the existing product management system.
+
+## 11.1 Product Basic Information
+
+Admin fields should support:
+
+- Product name.
+- Slug.
+- SKU.
+- Brand.
+- Category.
+- Subcategory.
+- Short description.
+- Full description.
+- Product status.
+- Visibility.
+- Featured status.
+- Publication status.
+
+## 11.2 Product Media Management
+
+Support:
+
+- Main image upload.
+- Multiple gallery images.
+- Image preview.
+- Image sorting.
+- Image deletion.
+- Image replacement.
+- Alt text.
+- Variant-specific images.
+- Product video, where supported.
+
+Reuse existing media infrastructure.
+
+## 11.3 Pricing Management
+
+Support:
+
+- Regular price.
+- Sale price.
+- Discount.
+- Tax configuration, where applicable.
+- Currency configuration.
+- Scheduled sale dates, if supported.
+
+All pricing must be validated server-side.
+
+## 11.4 Inventory Management
+
+Support:
+
+- SKU.
+- Stock quantity.
+- Stock status.
+- Low-stock threshold.
+- Allow backorders, if supported.
+- Variant-specific inventory.
+
+## 11.5 Product Highlights
+
+Admin should be able to add, edit, delete, and reorder multiple product highlights.
+
+## 11.6 Product Specifications
+
+Allow dynamic specification creation.
+
+Admin can:
+
+- Add specification groups.
+- Add specification labels.
+- Add specification values.
+- Edit values.
+- Delete fields.
+- Reorder specifications.
+
+## 11.7 Product Variants
+
+Allow administrators to create and manage variant attributes and combinations.
+
+Each variant must support its own inventory and SKU.
+
+## 11.8 Product Policies
+
+Where supported, allow product-specific:
+
+- Warranty information.
+- Return policy.
+- Shipping information.
+- Delivery notes.
+
+## 11.9 Related Product Configuration
+
+Allow administrators to manually select related products where appropriate.
+
+Automatic recommendations should remain available if supported.
+
+## 11.10 Product SEO
+
+Support:
+
+- SEO title.
+- SEO description.
+- Canonical URL.
+- Product slug.
+- Open Graph image, if supported.
+
+---
+
+# PART 12 — BACKEND ARCHITECTURE
+
+Implement using the existing backend architecture.
+
+Do not introduce a second backend framework or duplicate server.
+
+Follow the existing project's architecture and conventions.
+
+Where applicable, maintain clear separation between:
+
+### Routes
+
+Product routes, gallery routes where needed, variant routes, review routes, Q&A routes, wishlist routes, and related product routes.
+
+### Controllers
+
+Controllers should handle HTTP request/response operations.
+
+### Services
+
+Services should contain reusable business logic.
+
+### Models
+
+Extend existing MongoDB/Mongoose models rather than creating unnecessary duplicates.
+
+### Middleware
+
+Use existing authentication, authorization, validation, upload, and error-handling middleware.
+
+### Validation
+
+Validate:
+
+- Product IDs.
+- Variant IDs.
+- Quantities.
+- Review content.
+- Ratings.
+- Product status.
+- Uploaded files.
+- User permissions.
+- Price and inventory constraints.
+
+### API Requirements
+
+Use consistent API response structures.
+
+Implement:
+
+- Proper HTTP status codes.
+- Error handling.
+- Pagination.
+- Sorting.
+- Filtering.
+- Input validation.
+- Authentication where required.
+- Admin authorization.
+
+Do not expose internal database errors to customers.
+
+---
+
+# PART 13 — MONGODB DATABASE INTEGRATION
+
+The complete Product Details Page must use actual MongoDB data.
+
+Investigate the existing schemas first.
+
+Reuse existing models wherever possible.
+
+The existing architecture may already contain:
+
+- Product.
+- Category.
+- Brand.
+- User.
+- Review.
+- Order.
+- Cart.
+- Wishlist.
+- Inventory.
+
+Extend only where necessary.
+
+Where required, support:
+
+- Product gallery.
+- Product highlights.
+- Dynamic specifications.
+- Variant combinations.
+- Variant inventory.
+- Product video metadata.
+- Product-specific policies.
+- Review moderation status.
+- Review helpful counts.
+- Product questions.
+- Product answers.
+- Related product references.
+
+Implement appropriate database indexes.
+
+Avoid unnecessary joins or repeated queries.
+
+Use safe MongoDB update operations.
+
+Preserve existing production data.
+
+Never reset the database to make the new functionality work.
+
+Do not use MongoMemoryServer as a replacement for the configured production database.
+
+---
+
+# PART 14 — PRODUCT SEO & STRUCTURED DATA
+
+Implement appropriate SEO support.
+
+Where applicable:
+
+- Dynamic page title.
+- Meta description.
+- Canonical URL.
+- Open Graph metadata.
+- Product structured data.
+- Actual product price.
+- Actual currency.
+- Actual availability.
+- Actual rating information.
+
+Never publish fake rating or review information in structured data.
+
+Ensure each product has a stable, correct URL.
+
+---
+
+# PART 15 — RESPONSIVE DESIGN
+
+The reference screenshot is desktop-oriented.
+
+Reproduce its desktop layout while making the entire page responsive.
+
+### Desktop
+
+- Multi-column product details layout.
+- Vertical image gallery.
+- Product information column.
+- Trust cards and promotional banner on the right.
+- Full-width details tabs.
+- Review dashboard.
+- Related product carousel.
+
+### Tablet
+
+- Adjust columns and spacing.
+- Keep image gallery usable.
+- Prevent information overflow.
+- Reposition trust cards when necessary.
+
+### Mobile
+
+- Product image first.
+- Horizontal thumbnails.
+- Product information below gallery.
+- Variant selection.
+- Quantity selector.
+- Add to Cart.
+- Buy Now.
+- Collapsible or scrollable details tabs.
+- Review cards.
+- Related product carousel.
+
+Implement a mobile-friendly purchase experience.
+
+Ensure:
+
+- No horizontal page overflow.
+- No overlapping elements.
+- No broken image modal.
+- No inaccessible dropdown.
+- No clipped text.
+- No layout shift.
+
+---
+
+# PART 16 — VISUAL QUALITY & DESIGN SYSTEM
+
+The design must closely follow the uploaded reference.
+
+Use:
+
+- Premium white/light background.
+- Subtle green visual accents.
+- Clean borders.
+- Rounded cards.
+- Premium spacing.
+- Consistent typography.
+- Modern iconography.
+- High-quality image presentation.
+- Subtle shadows.
+- Smooth transitions.
+
+Typography must be consistent throughout the page.
+
+Use the project's existing font system where appropriate.
+
+For a Bangladesh storefront, ensure proper Bengali font rendering if Bengali product content is supported.
+
+Do not arbitrarily replace global fonts.
+
+Avoid:
+
+- Excessive gradients.
+- Excessive animations.
+- Unnecessary glassmorphism.
+- Oversized components.
+- Random colors.
+- Inconsistent spacing.
+- Generic template-like product cards.
+
+The final result should look like a professionally designed premium international e-commerce product page.
+
+---
+
+# PART 17 — SECURITY & PRODUCTION RELIABILITY
+
+Verify:
+
+1. Authentication.
+2. Authorization.
+3. Customer ownership.
+4. Admin-only product management.
+5. Review ownership.
+6. Verified purchase validation.
+7. Variant validation.
+8. Server-side pricing.
+9. Inventory consistency.
+10. Stock race-condition handling.
+11. NoSQL injection prevention.
+12. XSS protection.
+13. Secure image uploads.
+14. Input validation.
+15. API rate limiting where appropriate.
+16. Safe error handling.
+17. Sensitive data protection.
+
+Use database transactions where appropriate and supported by the existing MongoDB deployment.
+
+Do not trust frontend values for:
+
+- Product price.
+- Discount.
+- Stock.
+- Variant availability.
+- Review verification.
+- Customer identity.
+
+The backend must remain authoritative.
+
+---
+
+# PART 18 — TESTING & REGRESSION VERIFICATION
+
+Test the complete user journey.
+
+### Product Gallery
+
+- Thumbnail selection.
+- Image zoom.
+- Fullscreen modal.
+- Image navigation.
+- Mobile interaction.
+
+### Product Variants
+
+- Variant selection.
+- Variant image switching.
+- Variant price update.
+- Variant stock update.
+- Invalid combination rejection.
+
+### Purchase
+
+- Quantity changes.
+- Add to Cart.
+- Buy Now.
+- Wishlist.
+- Stock validation.
+- Cart persistence.
+
+### Reviews
+
+- Review submission.
+- Rating selection.
+- Form validation.
+- Verified purchase validation.
+- Duplicate review prevention.
+- Admin approval.
+- Rating recalculation.
+- Public review display.
+
+### Questions
+
+- Submit question.
+- Admin moderation.
+- Answer publication.
+- Customer-facing display.
+
+### Related Products
+
+- Actual product retrieval.
+- Correct product links.
+- Wishlist.
+- Add to Cart.
+
+### Admin
+
+- Create product.
+- Edit product.
+- Upload images.
+- Manage gallery.
+- Manage variants.
+- Manage specifications.
+- Manage highlights.
+- Manage pricing.
+- Manage stock.
+- Manage policies.
+- Manage related products.
+- Preview product.
+
+### Regression
+
+Verify that these existing modules still work:
+
+- Homepage.
+- Shop.
+- Category pages.
+- Search.
+- Cart.
+- Wishlist.
+- Checkout.
+- Order placement.
+- Customer account.
+- My Orders.
+- Admin Dashboard.
+- Admin Product Management.
+- Admin Order Management.
+
+Do not break existing routes, URLs, or shared components.
+
+Run available project checks:
+
+- npm run lint
+- npm run typecheck
+- npm test
+- npm run build
+
+Only run scripts that actually exist in the repository.
+
+Do not fabricate test results.
+
+---
+
+# PART 19 — IMPLEMENTATION RULES
+
+These rules are mandatory.
+
+1. Do not rebuild the entire project.
+2. Do not replace the existing backend.
+3. Do not create duplicate product systems.
+4. Do not create fake product information.
+5. Do not hardcode product images.
+6. Do not hardcode reviews.
+7. Do not hardcode product specifications.
+8. Do not hardcode product variants.
+9. Do not use frontend-only Add to Cart.
+10. Do not simulate database persistence.
+11. Do not bypass authentication.
+12. Do not trust frontend pricing.
+13. Do not break existing admin functionality.
+14. Do not change unrelated UI designs.
+15. Do not change existing routes unnecessarily.
+16. Do not remove working APIs.
+17. Do not introduce unnecessary dependencies.
+18. Do not delete existing database data.
+19. Do not replace working components without investigating their dependencies.
+20. Do not claim functionality is production-ready without testing it.
+
+Preserve existing business logic and extend it carefully.
+
+---
+
+# PART 20 — EXECUTION WORKFLOW
+
+Follow this exact workflow.
+
+STEP 1: Inspect the full repository.
+
+STEP 2: Audit the current Product Details Page.
+
+STEP 3: Identify existing product, variant, gallery, review, cart, wishlist, and admin implementations.
+
+STEP 4: Prepare a dependency-aware implementation plan.
+
+STEP 5: Implement the reference-matching Product Details UI.
+
+STEP 6: Integrate dynamic product information.
+
+STEP 7: Implement the image gallery, zoom, and fullscreen modal.
+
+STEP 8: Integrate dynamic product variants and inventory.
+
+STEP 9: Integrate Add to Cart, Buy Now, and Wishlist.
+
+STEP 10: Implement product tabs.
+
+STEP 11: Implement the review submission modal and backend.
+
+STEP 12: Integrate product Q&A.
+
+STEP 13: Implement related products.
+
+STEP 14: Extend the Admin Product Management system.
+
+STEP 15: Verify MongoDB persistence.
+
+STEP 16: Verify API, middleware, controller, and service integration.
+
+STEP 17: Perform responsive testing.
+
+STEP 18: Perform regression testing.
+
+STEP 19: Run the production build.
+
+STEP 20: Provide the final engineering report.
+
+Do not stop after the planning phase.
+
+Implement actual working code.
+
+If external credentials or unavailable services prevent complete verification, report the limitation accurately.
+
+---
+
+# PART 21 — FINAL COMPLETION REPORT
+
+After implementation, provide:
+
+1. Existing project architecture discovered.
+2. Product Details UI implementation.
+3. Product Gallery implementation.
+4. Image Zoom and Fullscreen Modal implementation.
+5. Product Variant implementation.
+6. Dynamic pricing and stock implementation.
+7. Add to Cart and Buy Now integration.
+8. Wishlist integration.
+9. Product Tabs implementation.
+10. Review Modal implementation.
+11. Review API and database implementation.
+12. Verified Purchase validation.
+13. Questions & Answers implementation.
+14. Related Products implementation.
+15. Admin Product Management changes.
+16. MongoDB schema changes.
+17. Backend APIs and endpoints.
+18. Controllers, services, and middleware changes.
+19. Security checks.
+20. Responsive testing results.
+21. Modified file paths.
+22. Lint, TypeScript, tests, and build results.
+23. Remaining issues.
+24. Final production-readiness assessment.
+
+Clearly distinguish between:
+
+- Implemented.
+- Tested and verified.
+- Partially implemented.
+- Blocked by external configuration.
+
+Do not claim completion without evidence.
+
+---
+
+# FINAL DIRECTIVE
+
+My uploaded screenshot is the primary visual specification.
+
+I want the complete Product Details Page to look as close as reasonably possible to this screenshot.
+
+But the most important requirement is that the entire page must be genuinely dynamic.
+
+When I create a product from the Admin Panel, I should be able to configure its:
+
+- Images.
+- Gallery.
+- Variants.
+- Prices.
+- Discounts.
+- Stock.
+- Highlights.
+- Specifications.
+- Descriptions.
+- Video.
+- Shipping information.
+- Warranty.
+- Related products.
+- SEO information.
+
+The customer-facing Product Details Page must automatically retrieve and display the correct information from MongoDB.
+
+Every interaction must connect to the real backend.
+
+Reviews must be persisted and moderated.
+
+Variants must be validated.
+
+Cart and Wishlist must work with the existing customer system.
+
+Admin must have complete control over the relevant product content.
+
+**Do not deliver a beautiful but non-functional frontend.**
+
+**Deliver a complete, maintainable, secure, responsive, database-driven, production-oriented e-commerce Product Details System.**
+
+Work carefully, preserve existing functionality, and verify every affected feature before declaring the task complete.

@@ -1,0 +1,1434 @@
+# MASTER ENGINEERING PROMPT — PREMIUM FULL-STACK E-COMMERCE ADMIN PANEL
+
+## ROLE & ENGINEERING STANDARD
+
+Act as a Senior Principal Software Architect, PhD-level Software Engineer, Full-Stack Engineering Lead, Database Architect, Security Engineer, and Enterprise E-commerce Platform Specialist.
+
+Your responsibility is to transform my existing e-commerce project into a complete, professional, production-ready e-commerce management platform with a premium administrative dashboard.
+
+This is NOT a frontend-only design task.
+
+You must implement and integrate the complete system across:
+
+- Frontend
+- Backend
+- Database
+- REST APIs
+- API Routes
+- Controllers
+- Services
+- Middleware
+- Authentication
+- Authorization
+- Admin Dashboard
+- Admin Management Modules
+- Customer-facing Storefront
+- Database Models
+- Validation
+- Security
+- Logging
+- Testing
+- Production Deployment Compatibility
+
+**MOST IMPORTANT: I WILL PROVIDE A REFERENCE ADMIN DASHBOARD IMAGE.**
+
+Carefully inspect the provided image before writing any code.
+
+Use the image as the primary visual reference. Recreate its layout, visual hierarchy, spacing, proportions, sidebar, dashboard cards, charts, tables, colors, gradients, typography, icons, and overall premium appearance as closely as possible.
+
+However, the implementation must be fully dynamic and connected to the existing application's actual backend and database.
+
+Do not create a static dashboard or fake administrative interface.
+
+---
+
+# PHASE 1 — COMPLETE EXISTING PROJECT AUDIT
+
+Before implementing anything, inspect the entire existing repository.
+
+Read and understand:
+
+1. package.json
+2. Existing frontend architecture
+3. Backend architecture
+4. Database configuration
+5. MongoDB and Mongoose models
+6. API routes
+7. Controllers
+8. Services
+9. Middleware
+10. Authentication and authorization
+11. Admin authentication
+12. Existing admin pages
+13. Product management
+14. Order management
+15. Customer management
+16. Inventory management
+17. Marketing and promotional systems
+18. Payment integration
+19. Shipping integration
+20. Homepage CMS
+21. Website settings
+22. Existing environment variables
+23. Existing deployment configuration
+24. Existing tests
+
+Identify which features already exist, which are partially implemented, which are frontend-only, and which are missing.
+
+Create a dependency map between the frontend, backend, database, and administrative modules.
+
+IMPORTANT PRESERVATION RULES:
+
+- Do not rebuild the entire application unnecessarily.
+- Do not replace existing working business logic.
+- Do not remove existing routes or API endpoints.
+- Do not break existing customer-facing pages.
+- Do not change existing URLs without a genuine technical requirement.
+- Do not replace existing authentication systems.
+- Do not introduce duplicate database models.
+- Do not create a second implementation of an existing feature.
+- Preserve existing design conventions wherever they are already correct.
+- Reuse existing components, hooks, utilities, services, and infrastructure.
+
+Implement only the necessary changes.
+
+---
+
+# PHASE 2 — PREMIUM ADMIN DASHBOARD DESIGN
+
+Recreate the supplied reference image as closely as possible.
+
+## A. Main Layout
+
+Create a premium, modern, enterprise-grade admin dashboard.
+
+### Left Sidebar
+
+Use a dark navy/black gradient sidebar with:
+
+- ShopVista logo
+- Admin Panel branding
+- Dashboard navigation
+- Organized menu groups
+- Modern Lucide icons
+- Active navigation highlighting
+- Expandable and collapsible submenus
+- Notification badges
+- Smooth transitions
+- User profile section
+- Logout option
+
+The sidebar should be fixed or sticky on desktop.
+
+On mobile, implement a responsive drawer with an accessible menu toggle.
+
+### Top Navigation Bar
+
+Implement:
+
+- Global search
+- Search shortcut (Ctrl + K)
+- Live Storefront button
+- Notification bell
+- Unread notification count
+- Fullscreen toggle
+- Admin profile avatar
+- Admin name
+- Admin role
+- Profile dropdown
+- Account settings
+- Logout
+
+Global search must search accessible admin resources such as products, orders, customers, categories, and other supported entities.
+
+Results must come from actual backend data.
+
+### Dashboard Welcome Banner
+
+Recreate the premium dark-green welcome banner shown in the reference image.
+
+Include:
+
+- Dynamic admin greeting
+- Current date
+- Current local time
+- Store branding
+- Premium background imagery
+- Responsive layout
+
+Use the authenticated admin's actual profile information.
+
+### Dashboard Statistics Cards
+
+Create four premium summary cards:
+
+1. Total Sales
+2. Total Orders
+3. Total Customers
+4. Total Products
+
+Each card must display:
+
+- Actual database-derived value
+- Relevant icon
+- Percentage change
+- Comparison with previous period
+- Mini trend chart
+- Appropriate currency formatting
+
+All values must be calculated from real database records.
+
+Do not use hardcoded demo statistics.
+
+### Sales Overview
+
+Create an interactive sales analytics section.
+
+Include:
+
+- Total revenue
+- Percentage growth
+- 7 Days
+- 30 Days
+- 3 Months
+- 1 Year
+- Revenue trend chart
+- Date-based filtering
+- Actual sales data
+
+Changing the date range must fetch the corresponding data from the backend.
+
+### Recent Orders
+
+Create a premium order table with:
+
+- Order ID
+- Customer
+- Customer avatar
+- Order amount
+- Payment status
+- Order status
+- Order date
+- View order action
+
+Include a View All option.
+
+### Top Selling Products
+
+Display:
+
+- Product image
+- Product name
+- Selling price
+- Units sold
+- Sales performance indicator
+- Ranking
+
+Calculate rankings from actual completed order data.
+
+### Orders by Status
+
+Create a dynamic doughnut chart showing:
+
+- Delivered
+- Processing
+- Pending
+- Cancelled
+
+Percentages must be calculated from actual order records.
+
+### Latest Customers
+
+Display:
+
+- Customer avatar
+- Customer name
+- Email
+- Verification status
+- Registration time
+
+### Special Offer
+
+Create a promotional dashboard card connected to the actual coupon and campaign management system.
+
+The Manage Offer action must open the corresponding admin management page.
+
+### Quick Actions
+
+Include:
+
+- Add Product
+- Create Order
+- Add Coupon
+- View Reports
+
+Every action must navigate to its real working module.
+
+### Recent Activities
+
+Create a real activity feed displaying:
+
+- New order placed
+- Product created or updated
+- Customer registered
+- Inventory adjusted
+- Coupon created
+- Settings changed
+- Other important administrative activities
+
+Store and retrieve activity records from the database.
+
+### Security Banner
+
+Create a premium store security information card.
+
+Display meaningful system health and security information obtained from actual backend checks.
+
+Do not show a fake security status.
+
+---
+
+# PHASE 3 — COMPLETE ADMIN SIDEBAR AND MANAGEMENT MODULES
+
+IMPORTANT:
+
+Every menu below must have its own dedicated, functional administrative page.
+
+Do not create menus that lead to empty pages.
+
+Do not implement all features inside one generic page.
+
+Each module must have its own appropriate UI, API integration, database operations, permissions, filters, search, pagination, and validation.
+
+## 1. PRODUCTION MANAGEMENT
+
+### Products
+
+- All Products
+- Add Product
+- Edit Product
+- Product Details
+- Product Categories
+- Brands
+- Product Attributes
+- Attribute Groups
+- Product Variants
+- Inventory
+- Stock Adjustment
+- Stock History
+
+Product management must support:
+
+- Product name
+- Slug
+- SKU
+- Barcode
+- Multiple product images
+- Image gallery
+- Product videos
+- Product description
+- Short description
+- Regular price
+- Sale price
+- Purchase price
+- Cost price
+- Category
+- Brand
+- Product attributes
+- Variants
+- Sizes
+- Colors
+- Specifications
+- Stock quantity
+- Low-stock threshold
+- Featured status
+- Best-seller status
+- New-arrival status
+- Product visibility
+- SEO title
+- SEO description
+- Meta keywords
+
+Implement dynamic product creation and editing.
+
+Product information must be stored in MongoDB.
+
+Product images must use the existing upload infrastructure, such as Cloudinary, if already integrated.
+
+Do not store image URLs as a substitute for actual upload functionality.
+
+### Inventory Management
+
+Implement:
+
+- Stock overview
+- Stock adjustment
+- Stock history
+- Low-stock alerts
+- Out-of-stock alerts
+- Stock movement records
+- Inventory reports
+
+Every stock adjustment must be recorded with:
+
+- Product ID
+- Previous quantity
+- New quantity
+- Adjustment reason
+- Admin ID
+- Timestamp
+
+Use safe atomic database operations.
+
+Prevent negative inventory unless an explicitly supported business rule allows it.
+
+---
+
+## 2. MARKETING MANAGEMENT
+
+Create a complete marketing management system.
+
+### Hero Slides
+
+Admin must be able to:
+
+- Create hero slides
+- Edit slides
+- Delete slides
+- Upload desktop images
+- Upload mobile images
+- Configure headline
+- Configure subtitle
+- Configure button text
+- Configure button URL
+- Configure background
+- Configure display order
+- Enable or disable slides
+- Schedule publishing
+- Set start and end dates
+
+Changes must appear on the storefront automatically.
+
+### Cart Page Slides
+
+Create a separate CMS section for cart page banners.
+
+### Checkout Page Slides
+
+Create a separate CMS section for checkout banners.
+
+### Wishlist Page Slides
+
+Create a separate CMS section for wishlist banners.
+
+### Dynamic Banners
+
+Support:
+
+- Multiple banner placements
+- Desktop and mobile images
+- Banner title
+- Subtitle
+- CTA text
+- CTA URL
+- Display order
+- Scheduling
+- Visibility controls
+
+### Advertisements
+
+Implement:
+
+- Advertisement management
+- Advertisement placement
+- Desktop and mobile creatives
+- Start and end dates
+- Campaign status
+- Click tracking
+- Impression tracking
+- Performance statistics
+
+### Global Advertisements
+
+Allow configurable promotional placements across supported storefront pages.
+
+### Promotional Popups
+
+Admin must be able to create and manage:
+
+- Popup image
+- Title
+- Description
+- CTA
+- Display frequency
+- Delay
+- Target pages
+- Active dates
+- Enable/disable
+
+Avoid repeatedly showing popups to customers who have already dismissed them according to the configured display rules.
+
+### Promotional Campaigns
+
+Implement:
+
+- Campaign creation
+- Campaign editing
+- Campaign scheduling
+- Campaign products
+- Campaign discounts
+- Campaign status
+- Performance reporting
+
+### Navigation Menu
+
+Admin must be able to:
+
+- Add menu items
+- Edit menu items
+- Delete menu items
+- Create dropdowns
+- Configure nested menus
+- Reorder menu items
+- Set visibility
+- Configure internal or external links
+
+Changes must automatically update the storefront navigation.
+
+---
+
+## 3. SALES & ORDER MANAGEMENT
+
+Create a complete order management system.
+
+### Order Pages
+
+- All Orders
+- Pending Orders
+- Processing Orders
+- Shipped Orders
+- Delivered Orders
+- Cancelled Orders
+- Cancellation Requests
+- Returns & Refunds
+- Payment Management
+- Payment Transactions
+
+### Order Details
+
+Display:
+
+- Order number
+- Customer information
+- Ordered products
+- Product variants
+- Quantity
+- Product price
+- Discounts
+- Shipping charge
+- Tax
+- Grand total
+- Shipping address
+- Billing address
+- Payment method
+- Payment status
+- Order status
+- Order timeline
+
+### Order Operations
+
+Allow authorized administrators to:
+
+- View orders
+- Update order status
+- Confirm orders
+- Process orders
+- Mark as shipped
+- Mark as delivered
+- Approve cancellation requests
+- Reject cancellation requests
+- Manage returns
+- Process eligible refunds
+- Print invoices
+- Export order records
+
+Maintain a complete order status history.
+
+Prevent invalid order status transitions.
+
+Use database transactions or appropriate consistency mechanisms for critical order operations.
+
+Never mark an online payment as successful without verified payment-provider confirmation.
+
+---
+
+## 4. CUSTOMER MANAGEMENT
+
+Create dedicated pages for:
+
+- All Customers
+- Customer Groups
+- Customer Reviews & Ratings
+- Support Tickets
+
+### Customer Details
+
+Display:
+
+- Customer profile
+- Name
+- Email
+- Phone
+- Registration date
+- Order history
+- Total spending
+- Order count
+- Saved addresses
+- Account status
+
+Allow authorized administrators to manage customer accounts.
+
+Do not expose passwords or sensitive authentication credentials.
+
+### Customer Groups
+
+Support:
+
+- Group creation
+- Group editing
+- Group deletion
+- Customer assignment
+- Group-based promotional rules
+
+### Reviews & Ratings
+
+Allow administrators to:
+
+- View reviews
+- Filter reviews
+- Approve reviews
+- Reject reviews
+- Hide reviews
+- Delete inappropriate reviews
+- View verified purchase status
+
+Only genuine customer-submitted reviews should appear as verified purchases.
+
+---
+
+## 5. COUPONS & OFFERS
+
+Create separate management pages for:
+
+- Coupons
+- Discount Rules
+- Special Offers
+- Flash Sales
+
+Support:
+
+- Percentage discounts
+- Fixed amount discounts
+- Minimum purchase requirements
+- Maximum discount limits
+- Product-specific discounts
+- Category-specific discounts
+- Customer-group restrictions
+- Usage limits
+- Per-customer usage limits
+- Start dates
+- Expiry dates
+- Active/inactive status
+
+Validate coupon eligibility on the backend.
+
+Never trust frontend-calculated discounts.
+
+---
+
+## 6. CONTENT MANAGEMENT
+
+Create a complete website content management system.
+
+### Homepage CMS
+
+Admin must be able to manage the complete homepage.
+
+Include:
+
+- Homepage layout
+- Homepage sections
+- Section ordering
+- Section visibility
+- Product section configuration
+- Featured Products
+- Best Sellers
+- New Arrivals
+- Top Rated Products
+- Promotional Sections
+- Advertisement placements
+- Banner placements
+- Customer Reviews
+
+Admin must be able to create, edit, reorder, enable, disable, and delete supported homepage sections.
+
+All homepage content must be dynamic.
+
+### Static Pages
+
+Create management for:
+
+- About Us
+- Contact Us
+- Privacy Policy
+- Terms & Conditions
+- Shipping Policy
+- Return Policy
+- Other custom pages
+
+### FAQ Management
+
+Support FAQ creation, editing, deletion, categories, and ordering.
+
+### Blog Management
+
+Support:
+
+- Blog posts
+- Categories
+- Featured images
+- Author
+- Content editor
+- SEO metadata
+- Draft status
+- Published status
+- Scheduled publishing
+
+### Contact Management
+
+Display actual customer contact messages.
+
+Allow administrators to:
+
+- View messages
+- Reply
+- Mark as read
+- Change message status
+- Archive messages
+
+---
+
+## 7. WEBSITE MANAGEMENT
+
+Create dedicated settings pages for:
+
+### Header Settings
+
+- Logo
+- Header appearance
+- Navigation settings
+- Search configuration
+- Account links
+- Wishlist and cart visibility
+
+### Footer Settings
+
+- Footer logo
+- Footer description
+- Footer columns
+- Footer links
+- Contact details
+- Copyright text
+- Payment method logos
+
+### Announcement Bar
+
+Admin can change:
+
+- Announcement text
+- Background
+- Text color
+- Link
+- Visibility
+- Scheduling
+
+### Social Media Links
+
+Manage:
+
+- Facebook
+- Instagram
+- YouTube
+- TikTok
+- LinkedIn
+- Other supported platforms
+
+All changes must reflect on the storefront.
+
+---
+
+## 8. PAYMENT & SHIPPING
+
+### Payment Methods
+
+Create a complete payment configuration interface.
+
+Support the payment providers already integrated or explicitly required by the existing project.
+
+Potential methods include:
+
+- Cash on Delivery
+- bKash
+- Nagad
+- Debit/Credit Card
+- Other supported payment gateways
+
+Admin must be able to configure:
+
+- Enable/disable payment methods
+- Display order
+- Payment instructions
+- Gateway configuration
+- Test/live mode where supported
+
+Never expose secret API credentials in frontend responses.
+
+Never simulate successful payment transactions.
+
+### Shipping Settings
+
+Implement:
+
+- Shipping configuration
+- Delivery charges
+- Free shipping thresholds
+- Shipping methods
+- Delivery zones
+- Delivery restrictions
+
+### Tax Configuration
+
+Support:
+
+- Tax rates
+- Tax rules
+- Tax-inclusive/exclusive pricing
+- Product-specific tax rules
+- Applicable tax calculations
+
+All calculations must be performed and validated by the backend.
+
+Use Bangladesh Taka (৳ / BDT) as the store currency if that is the existing project configuration.
+
+Use consistent currency formatting throughout the entire admin panel and storefront.
+
+---
+
+## 9. REPORTS & ANALYTICS
+
+Create individual reporting pages.
+
+### Sales Analysis
+
+- Daily sales
+- Weekly sales
+- Monthly sales
+- Yearly sales
+- Sales comparisons
+
+### Revenue Analysis
+
+- Gross revenue
+- Net revenue
+- Discounts
+- Refunds
+- Shipping revenue
+- Tax collected
+
+### Product Performance
+
+- Best-selling products
+- Low-performing products
+- Product views where tracking exists
+- Units sold
+- Revenue by product
+
+### Customer Analysis
+
+- New customers
+- Returning customers
+- Customer spending
+- Customer order frequency
+
+### Inventory Reports
+
+- Current stock
+- Stock movement
+- Low stock
+- Out-of-stock products
+- Inventory valuation
+
+Provide date filters, charts, tables, and export options where appropriate.
+
+Reports must use actual database records and accurate aggregation pipelines.
+
+---
+
+## 10. SYSTEM SETTINGS
+
+Create dedicated pages for:
+
+### General & Store Settings
+
+- Store name
+- Store logo
+- Store email
+- Phone number
+- Store address
+- Currency
+- Timezone
+- Business information
+
+### Email Settings
+
+- SMTP configuration
+- Sender name
+- Sender email
+- Email templates
+- Test email functionality
+
+Never reveal SMTP passwords or secret credentials.
+
+### Notification Settings
+
+- Admin notifications
+- Order notifications
+- Customer notifications
+- Low-stock notifications
+- Notification preferences
+
+### SEO Settings
+
+- Global SEO title
+- Global SEO description
+- Meta information
+- Social sharing images
+- Sitemap configuration
+- Robots configuration
+
+### Security Settings
+
+- Session management
+- Login protection
+- Password policies
+- Authentication settings
+- Security audit information
+
+---
+
+## 11. ADMIN USERS & ROLES
+
+Create a complete role-based access control system.
+
+### Admin Users
+
+- Admin user list
+- Create admin
+- Edit admin
+- Disable admin
+- Assign roles
+
+### Admin Roles
+
+Implement configurable permissions.
+
+Example roles:
+
+- Super Admin
+- Admin
+- Manager
+- Product Manager
+- Order Manager
+- Marketing Manager
+- Support Manager
+- Read-only Analyst
+
+Permissions must support:
+
+- View
+- Create
+- Edit
+- Delete
+- Approve
+- Export
+- Manage Settings
+
+Enforce permissions on the backend, not just by hiding frontend buttons.
+
+A user without permission must not be able to access protected API endpoints directly.
+
+Protect Super Admin privileges against unauthorized modification.
+
+---
+
+## 12. AUDIT LOGS & SYSTEM TOOLS
+
+Create:
+
+- Performance Audit Log
+- Admin Activity Log
+- System Logs
+- Error Logs
+- Database Health
+- System Diagnostics
+
+### Audit Logs
+
+Record important actions:
+
+- Admin login
+- Product creation
+- Product updates
+- Order status changes
+- Coupon changes
+- Settings changes
+- Role changes
+- Sensitive administrative actions
+
+Include actor, action, affected resource, timestamp, and appropriate metadata.
+
+Do not expose sensitive credentials or passwords in logs.
+
+### Database Health
+
+Provide meaningful health checks for:
+
+- MongoDB connection
+- Database availability
+- API health
+- Storage integration
+- Background jobs, if implemented
+
+Do not expose internal credentials, database connection strings, or sensitive infrastructure information.
+
+---
+
+# PHASE 4 — BACKEND ARCHITECTURE
+
+Build the backend using the architecture and technology already established in the existing project.
+
+If the existing project uses React, TypeScript, Express, and MongoDB/Mongoose, preserve that stack.
+
+Use a clean modular architecture.
+
+Recommended separation:
+
+- Routes
+- Controllers
+- Services
+- Models
+- Middleware
+- Validators
+- Utilities
+- Types
+- Configuration
+
+Responsibilities:
+
+### Routes
+
+Define REST API endpoints and apply appropriate authentication and permission middleware.
+
+### Controllers
+
+Handle HTTP requests and responses.
+
+Keep controllers thin.
+
+### Services
+
+Contain business logic, calculations, database operations, and integration workflows.
+
+### Models
+
+Define properly structured Mongoose schemas, indexes, references, and validation.
+
+### Middleware
+
+Implement:
+
+- Authentication
+- Authorization
+- Role-based access
+- Request validation
+- Error handling
+- Rate limiting
+- Request logging
+
+Do not place all business logic inside route handlers.
+
+Avoid unnecessary duplication.
+
+Use consistent API response structures and meaningful HTTP status codes.
+
+---
+
+# PHASE 5 — DATABASE DESIGN
+
+Use the existing MongoDB database.
+
+Audit existing models before creating new ones.
+
+Create or extend the required collections for:
+
+- Products
+- Categories
+- Brands
+- Attributes
+- Inventory
+- Stock Movements
+- Hero Slides
+- Dynamic Banners
+- Advertisements
+- Promotional Popups
+- Campaigns
+- Navigation Menus
+- Orders
+- Order Items
+- Payment Transactions
+- Customers
+- Customer Groups
+- Reviews
+- Support Tickets
+- Coupons
+- Discount Rules
+- Homepage Sections
+- Static Pages
+- FAQs
+- Blog Posts
+- Contact Messages
+- Store Settings
+- Shipping Settings
+- Tax Settings
+- Admin Users
+- Admin Roles
+- Notifications
+- Audit Logs
+
+These are logical data domains, not instructions to create duplicate collections where existing models already cover the same responsibility.
+
+Database requirements:
+
+- Appropriate indexes
+- Unique constraints where needed
+- Referential integrity checks
+- Pagination-friendly queries
+- Efficient aggregation pipelines
+- Safe update operations
+- Consistent timestamps
+- Proper schema validation
+
+Use transactions where supported and necessary for critical multi-document operations.
+
+Do not delete existing customer or order data during implementation.
+
+Do not reset or replace the production database.
+
+---
+
+# PHASE 6 — PREMIUM DESIGN SYSTEM
+
+The entire admin panel must follow the supplied reference image.
+
+### Design Language
+
+- Premium dark navy sidebar
+- White/light-gray dashboard background
+- Emerald and green primary accent
+- Modern rounded cards
+- Soft shadows
+- Subtle borders
+- Professional charts
+- Premium tables
+- Consistent iconography
+- Clear visual hierarchy
+- Smooth transitions
+- Professional typography
+
+Use a consistent font system such as Inter or an existing project font that supports the required languages.
+
+### Responsive Design
+
+The entire admin panel must work on:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile
+
+Mobile requirements:
+
+- Collapsible sidebar
+- Responsive top navigation
+- Responsive dashboard cards
+- Horizontally scrollable tables when appropriate
+- Properly sized charts
+- Accessible modals
+- Touch-friendly controls
+
+Avoid unwanted horizontal page overflow.
+
+### Reusable Components
+
+Create reusable components for:
+
+- Data tables
+- Search
+- Filters
+- Pagination
+- Modals
+- Confirmation dialogs
+- Form fields
+- Image uploaders
+- Status badges
+- Statistics cards
+- Charts
+- Empty states
+- Loading skeletons
+- Error states
+- Toast notifications
+
+Use consistent component behavior throughout the admin panel.
+
+---
+
+# PHASE 7 — FUNCTIONALITY REQUIREMENTS
+
+Every administrative module must support the operations relevant to its purpose.
+
+- Create
+- Read
+- Update
+- Delete
+- Search
+- Filter
+- Sort
+- Pagination
+- Validation
+- Loading states
+- Error states
+- Success feedback
+- Confirmation dialogs
+
+For example, creating a product must actually create a MongoDB record.
+
+Editing a product must update the correct database record.
+
+Deleting a product must follow the project's existing order-history and data-retention rules.
+
+Changing a hero slide must update the storefront.
+
+Changing a homepage section must update the actual homepage.
+
+Changing payment or shipping configuration must affect the corresponding real checkout functionality.
+
+Changing order status must update the actual order record and create an order history entry.
+
+No fake success messages.
+
+No hardcoded administrative statistics.
+
+No dummy API responses.
+
+No localStorage-only implementation for business-critical persistent data.
+
+Use the backend as the source of truth.
+
+---
+
+# PHASE 8 — SECURITY & PRODUCTION REQUIREMENTS
+
+Implement and verify:
+
+- Secure authentication
+- Role-based access control
+- Server-side authorization
+- Input validation
+- Output sanitization
+- Secure file uploads
+- Rate limiting
+- CORS configuration
+- Secure cookie/session handling according to the existing architecture
+- Protection against unauthorized API access
+- Safe database queries
+- Environment-based secrets
+- Centralized error handling
+- Audit logging
+
+Never expose:
+
+- Password hashes
+- JWT secrets
+- API keys
+- SMTP passwords
+- Payment gateway secrets
+- MongoDB connection strings
+
+Do not place secrets in frontend code.
+
+Ensure all sensitive operations are protected by backend authorization.
+
+---
+
+# PHASE 9 — TESTING & FINAL VERIFICATION
+
+After implementation, perform a comprehensive verification.
+
+### Frontend Testing
+
+Verify:
+
+- All sidebar links
+- All submenu navigation
+- All dashboard actions
+- All forms
+- All modals
+- All tables
+- All filters
+- All pagination
+- All responsive layouts
+
+### Backend Testing
+
+Verify:
+
+- API endpoints
+- Authentication
+- Authorization
+- Validation
+- CRUD operations
+- Business logic
+- Error handling
+
+### Database Testing
+
+Verify:
+
+- Create operations
+- Update operations
+- Delete operations
+- Data persistence
+- Indexes
+- Relationships
+- Aggregation accuracy
+
+### Integration Testing
+
+Verify that:
+
+1. Admin creates a product.
+2. Product is saved in MongoDB.
+3. Product appears on the storefront.
+4. Admin edits the product.
+5. Storefront displays the updated information.
+6. Customer places an order.
+7. Order is saved in MongoDB.
+8. Admin can see the order.
+9. Admin updates order status.
+10. Customer can see the updated order status.
+11. Inventory changes correctly according to order lifecycle.
+12. Reports reflect actual transactions.
+13. Admin changes homepage content.
+14. Homepage displays the updated content.
+
+Test all critical workflows end-to-end.
+
+Run the project's existing lint, type-check, test, and production build commands.
+
+Fix implementation-related errors.
+
+Do not hide failing tests or disable existing validation to make the build pass.
+
+---
+
+# PHASE 10 — IMPLEMENTATION RULES
+
+Follow these rules strictly:
+
+1. First inspect the entire project.
+2. Understand existing architecture.
+3. Prepare an implementation plan.
+4. Identify dependencies between modules.
+5. Implement backend and frontend integration.
+6. Implement database models and migrations or safe schema changes where necessary.
+7. Connect every page to real APIs.
+8. Verify actual database persistence.
+9. Test the complete workflows.
+10. Verify production build compatibility.
+
+Do not stop after producing a design.
+
+Do not stop after creating sidebar navigation.
+
+Do not create placeholder pages.
+
+Do not create fake data to make the dashboard look populated.
+
+Do not mark unfinished modules as complete.
+
+Do not remove existing working functionality to simplify implementation.
+
+If an existing feature is already correctly implemented, preserve it and verify it instead of rebuilding it.
+
+If a required external service is not configured, implement the appropriate integration structure and clearly identify the missing environment configuration. Never simulate a real successful transaction.
+
+If a task cannot be completed because of missing credentials or external dependencies, report that limitation honestly.
+
+---
+
+# FINAL ACCEPTANCE CRITERIA
+
+The project will be considered complete only when:
+
+- The admin dashboard closely matches the provided reference image.
+- Every requested sidebar menu exists.
+- Every menu opens its own functional page.
+- All administrative operations work.
+- All relevant changes persist in MongoDB.
+- All APIs are connected to the correct frontend modules.
+- Admin permissions are enforced on the backend.
+- Products, orders, customers, inventory, marketing, content, payments, shipping, and settings are properly integrated.
+- Storefront content updates dynamically from admin changes.
+- Dashboard statistics use actual database information.
+- Charts display real calculated values.
+- All important actions generate appropriate activity/audit records.
+- Responsive behavior works across devices.
+- Existing storefront functionality remains intact.
+- Existing URLs and business logic are preserved unless a documented technical change is necessary.
+- Tests and production build pass.
+
+## FINAL INSTRUCTION
+
+Do not merely explain how to build this system.
+
+Actually inspect, implement, integrate, and test the existing project.
+
+Work as a professional engineering team responsible for delivering a real-world production e-commerce administration platform.
+
+Prioritize correctness, security, maintainability, performance, data integrity, and visual quality.
+
+The supplied dashboard image is the primary visual reference. Recreate its premium visual experience while implementing a fully functional, database-driven administrative system.
+
+At the end, provide a concise implementation report containing:
+
+1. What was already implemented.
+2. What was newly implemented.
+3. What existing features were corrected.
+4. Database models created or updated.
+5. API routes created or updated.
+6. Admin modules completed.
+7. Tests executed and their results.
+8. Production build result.
+9. Any remaining configuration or deployment requirements.
+
+**Do not claim that any feature is production-ready unless it has actually been implemented and verified.**
